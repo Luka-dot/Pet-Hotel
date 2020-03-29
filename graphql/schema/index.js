@@ -33,6 +33,7 @@ type RootQuery {
 type RootMutation {
     createBooking(bookingInput: BookingInput): Booking
     createUser(userInput: UserInput): User
+    cancelBooking(bookingId: ID!): Booking!
 }
 schema {
     query: RootQuery

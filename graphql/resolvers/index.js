@@ -101,7 +101,17 @@ module.exports = {
     } catch (err) {
       throw err;
     }
-  }
+  },  
+  cancelBooking: async (args, reg) => { 
+    try {
+        const booking = await Booking.findById(args.bookingId);
+    //    const event = transformEventForDatabase(booking.event)
+        await Booking.deleteOne({_id: args.bookingId});
+        return booking;
+    } catch (err) {
+        throw err;
+    }
+} 
 };
 
 
