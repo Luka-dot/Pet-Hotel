@@ -54,8 +54,8 @@ app.use(
         type Booking {
           _id: ID!
           customer: String!
-          startDate: String!
-          endDate: String!
+          checkIn: String!
+          checkOut: String!
           price: Float!
           date: String!
           creator: User!
@@ -68,8 +68,8 @@ app.use(
           }
         input BookingInput {
             customer: String!
-            startDate: String!
-            endDate: String!
+            checkIn: String!
+            checkOut: String!
             price: Float!
             date: String!
         }
@@ -104,8 +104,8 @@ app.use(
       createBooking: args => {
         const booking = new Booking({
           customer: args.bookingInput.customer,
-          startDate:  dateToString(args.bookingInput.startDate),
-          endDate:  dateToString(args.bookingInput.endDate),
+          checkIn:  dateToString(args.bookingInput.checkIn),
+          checkOut:  dateToString(args.bookingInput.checkOut),
           price: +args.bookingInput.price,
           date: dateToString(args.bookingInput.date),
           // temp hardcoded

@@ -11,10 +11,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  createdEvents: [
+  createdBookings: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Event'
+      ref: 'Booking'
     }
   ]
 });

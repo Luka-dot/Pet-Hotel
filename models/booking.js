@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const eventSchema = new Schema({
-  title: {
+const bookingSchema = new Schema({
+  customer: {
     type: String,
     required: true
   },
-  description: {
-    type: String,
+  checkIn: {
+    type: Date,
+    required: true
+  },
+  checkOut: {
+    type: Date,
     required: true
   },
   price: {
@@ -20,12 +24,13 @@ const eventSchema = new Schema({
     required: true
   },
   creator: {
-      type: Schema.Types.ObjectId,
-      ref: 'User'
+    type: Schema.Types.ObjectId,
+    // ref helps set up connection between models. passing name of the model to connect to this case 'User'
+    ref: 'User'
   }
 });
 
-module.exports = mongoose.model('Event', eventSchema);
+module.exports = mongoose.model('Booking', bookingSchema);
 
 
 
@@ -39,11 +44,11 @@ const bookingSchema = new Schema({
     type: String,
     required: true
   },
-  startDate: {
+  checkIn: {
     type: Date,
     required: true
   },
-  endDate: {
+  checkOut: {
     type: Date,
     required: true
   },
