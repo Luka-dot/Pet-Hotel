@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
 const { buildSchema } = require('graphql');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const Booking = require('./models/booking');
 
@@ -99,8 +99,8 @@ app.use(
             // for each event ran: _doc is a property provided by Mongoose. gives {} all properties without metadata
             return {
                 ...result._doc
-            };
-        } 
+            }
+        }, 
     
 
     graphiql: true
