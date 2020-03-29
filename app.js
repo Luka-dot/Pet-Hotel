@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const Booking = require('./models/booking');
 
-const { dateToString } = require('../../helpers/date');
+const { dateToString } = require('./helpers/date');
 
 const app = express();
 
