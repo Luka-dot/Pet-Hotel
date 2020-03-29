@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 
 const Booking = require('./models/booking');
 
+const { dateToString } = require('../../helpers/date');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -55,10 +57,10 @@ app.use(
       createBooking: args => {
         const booking = new Booking({
           customer: args.bookingInput.customer,
-          startDate:  args.bookingInput.startDate,
-          endDate:  args.bookingInput.endDate,
+          startDate:  dateToString(args.bookingInput.startDate),
+          endDate:  dateToString(args.bookingInput.endDate),
           price: +args.bookingInput.price,
-          date: args.bookingInput.date
+          date: dateToString(args.bookingInput.date)
         });
         return booking
           .save()
