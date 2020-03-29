@@ -55,10 +55,10 @@ app.use(
       createBooking: args => {
         const booking = new Booking({
           customer: args.bookingInput.customer,
-          startDate: args.bookingInput.startDate,
-          endDate: args.bookingInput.endDate,
+          startDate:  args.bookingInput.startDate,
+          endDate:  args.bookingInput.endDate,
           price: +args.bookingInput.price,
-          date: new Date(args.bookingInput.date)
+          date: args.bookingInput.date
         });
         return booking
           .save()
