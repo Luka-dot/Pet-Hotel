@@ -24,6 +24,12 @@ app.use(
           price: Float!
           date: String!
         }
+        type User {
+            _id: ID!
+            email: String!
+            password: String
+            createdBooking: [Booking!]
+          }
         input BookingInput {
             customer: String!
             startDate: String!
@@ -31,6 +37,10 @@ app.use(
             price: Float!
             date: String!
         }
+        input UserInput {
+            email: String!
+            password: String!
+          }
         type RootQuery {
             bookings: [Booking!]!
         }
