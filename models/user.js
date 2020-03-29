@@ -12,8 +12,9 @@ const userSchema = new Schema({
     required: true
   },
   createdBookings: [
-    {
+    { // ObjectID is special schema provided by mongodb
       type: Schema.Types.ObjectId,
+      // ref helps set up connection between models. passing name of the model to connect to this case 'Booking'
       ref: 'Booking'
     }
   ]
