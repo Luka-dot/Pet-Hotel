@@ -3,8 +3,11 @@ const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
 const { buildSchema } = require('graphql');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const Booking = require('./models/booking');
+
+const User = require('./models/user');
 
 const { dateToString } = require('./helpers/date');
 
@@ -46,6 +49,7 @@ app.use(
         }
         type RootMutation {
             createBooking(bookingInput: BookingInput): Booking
+            createUser(userInput: UserInput): User
         }
         schema {
             query: RootQuery
@@ -84,6 +88,21 @@ app.use(
           });
       }
     },
+
+    createUser: async args => {
+        const hashedPassword = await bcrypt.hash(args.userInput.password, 12)
+            const user = new User({
+                email: args.userInput.email,
+                password: hashedPassword
+            });
+            const result = await user.save();
+            // for each event ran: _doc is a property provided by Mongoose. gives {} all properties without metadata
+            return {
+                ...result._doc
+            };
+        } 
+    
+
     graphiql: true
   })
 );
