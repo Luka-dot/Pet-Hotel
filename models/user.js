@@ -1,4 +1,29 @@
 const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  createdEvents: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Event'
+    }
+  ]
+});
+
+module.exports = mongoose.model('User', userSchema);
+
+
+/*
+const mongoose = require('mongoose');
 // need schema from mongoose package
 const Schema = mongoose.Schema;
 
@@ -11,7 +36,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    // each user can create multiple events. therefor use [] inside create single model {}
+    // each user can create multiple bookings. therefor use [] inside create single model {}
     // only storing IDs with syntax below 
     createdBooking: [
         {      // ObjectID is special schema provided by mongodb
@@ -23,3 +48,5 @@ const userSchema = new Schema({
 });
 
 module.exports = mongoose.model('User', userSchema);
+
+*/

@@ -1,6 +1,38 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
+const mongoose = require('mongoose');
+
+const graphQlSchema = require('./graphql/schema/index');
+const graphQlResolvers = require('./graphql/resolvers/index');
+
+const app = express();
+
+app.use(bodyParser.json());
+
+app.use(
+  '/graphql',
+  graphqlHttp({
+    schema: graphQlSchema,
+    rootValue: graphQlResolvers,
+    graphiql: true
+  })
+);
+
+// nodemon.json is set up with username and password. passing those variables to connection to mongoose and starting server
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-9lijc.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,{useUnifiedTopology: true}).then(() => {
+                        app.listen(3000);
+                    }).catch(err => { 
+                        console.log('logging error in connect ',err);
+                    });
+
+
+
+
+/*
+const express = require('express');
+const bodyParser = require('body-parser');
+const graphqlHttp = require('express-graphql');
 const { buildSchema } = require('graphql');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -26,12 +58,13 @@ app.use(
           endDate: String!
           price: Float!
           date: String!
+          creator: User!
         }
         type User {
             _id: ID!
             email: String!
             password: String
-            createdBooking: [Booking!]
+            createdBookings: [Booking!]
           }
         input BookingInput {
             customer: String!
@@ -58,7 +91,7 @@ app.use(
     `),
     rootValue: {
       bookings: () => {
-        return Booking.find()
+        return Booking.find().populate('creator')    // populate will allow to "drill" in to ref collection
           .then(bookings => {
             return bookings.map(booking => {
               return { ...booking._doc, _id: booking.id };
@@ -74,13 +107,26 @@ app.use(
           startDate:  dateToString(args.bookingInput.startDate),
           endDate:  dateToString(args.bookingInput.endDate),
           price: +args.bookingInput.price,
-          date: dateToString(args.bookingInput.date)
+          date: dateToString(args.bookingInput.date),
+          // temp hardcoded
+          creator: "5e80a69b43a09c2de8af89c4"
         });
+        let createdBooking;
         return booking
           .save()
           .then(result => {
-            console.log(result);
-            return { ...result._doc, _id: result._doc._id.toString() };
+            createdBooking = { ...result._doc, _id: result._doc._id.toString() };
+            return User.findById('5e80a69b43a09c2de8af89c4');
+          })
+          .then(user => {
+            if (!user) {
+              throw new Error('User not found.');
+            }
+            user.createdBooking.push(booking);
+            return user.save();
+          })
+          .then(result => {
+            return createdBooking;
           })
           .catch(err => {
             console.log(err);
@@ -105,6 +151,7 @@ app.use(
             return user.save();
           })
           .then(result => {
+            // setting password returned to null so it never shows
             return { ...result._doc, password: null, _id: result.id };
           })
           .catch(err => {
@@ -124,4 +171,4 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PA
                     }).catch(err => { 
                         console.log('logging error in connect ',err);
                     });
-
+*/
