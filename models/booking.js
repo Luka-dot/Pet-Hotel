@@ -22,7 +22,12 @@ const bookingSchema = new Schema({
   date: {
     type: Date,
     required: true
-  }
+  },
+  creator: {
+    type: Schema.Types.ObjectId,
+    // ref helps set up connection between models. passing name of the model to connect to this case 'User'
+    ref: 'User'
+}
   
 },
 { timestamps: true }
