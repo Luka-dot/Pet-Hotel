@@ -1,25 +1,39 @@
 const bcrypt = require('bcryptjs');
+const moment = require('moment');
 
 const Booking = require('../../models/booking');
 const User = require('../../models/user');
 const { dateToString } = require('../../helpers/date.js');
 
+const transformBooking = bookingToTransform =>  {    //  booking => is the current argument I want to change
+    return {
+        ...bookingToTransform._doc,
+        _id: bookingToTransform.id,
+        date: dateToString(bookingToTransform._doc.date),
+        creator: user.bind(this, bookingToTransform.creator)
+      }
+}
+
 const bookings = async bookingIds => {
   try {
     const bookings = await Booking.find({ _id: { $in: bookingIds } });
     bookings.map(booking => {
-      return {
-        ...booking._doc,
-        _id: booking.id,
-        date: new Date(booking._doc.date).toISOString(),
-        creator: user.bind(this, booking.creator)
-      };
+      return transformBooking(booking);
     });
     return bookings;
   } catch (err) {
     throw err;
   }
 };
+
+const singleBooking = async bookingId => {
+    try {
+        const booking = await Booking.findById(bookingId);
+        return transformBooking(booking)
+    } catch (err) {
+        throw err;
+    }
+}
 
 const user = async userId => {
   try {
@@ -39,12 +53,7 @@ module.exports = {
     try {
       const bookings = await Booking.find();
       return bookings.map(booking => {
-        return {
-          ...booking._doc,
-          _id: booking.id,
-          date: new Date(booking._doc.date).toISOString(),
-          creator: user.bind(this, booking._doc.creator)
-        };
+        return transformBooking(booking);
       });
     } catch (err) {
       throw err;
@@ -56,18 +65,13 @@ module.exports = {
         checkIn:  dateToString(args.bookingInput.checkIn),
         checkOut:  dateToString(args.bookingInput.checkOut),
         price: +args.bookingInput.price,
-        date: new Date(args.bookingInput.date).toISOString(),
+        date: dateToString(args.bookingInput.date),
       creator: '5e80c76d1f65172aacd92d55'
     });
     let createdBooking;
     try {
       const result = await booking.save();
-      createdBooking = {
-        ...result._doc,
-        _id: result._doc._id.toString(),
-        date: new Date(booking._doc.date).toISOString(),
-        creator: user.bind(this, result._doc.creator)
-      };
+      createdBooking = transformBooking(result);
       const creator = await User.findById('5e80c76d1f65172aacd92d55');
 
       if (!creator) {
@@ -105,7 +109,7 @@ module.exports = {
   cancelBooking: async (args, reg) => { 
     try {
         const booking = await Booking.findById(args.bookingId);
-    //    const event = transformEventForDatabase(booking.event)
+    //    const booking = transformBooking(booking)
         await Booking.deleteOne({_id: args.bookingId});
         return booking;
     } catch (err) {
@@ -117,3 +121,10 @@ module.exports = {
 
 
 //      5e80c76d1f65172aacd92d55
+
+/*
+ ...booking._doc,
+        _id: booking.id,
+        date: new Date(booking._doc.date).toISOString(),
+        creator: user.bind(this, booking.creator)
+        */
