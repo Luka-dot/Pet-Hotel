@@ -13,7 +13,7 @@ const userSchema = new Schema({
     },
     // each user can create multiple events. therefor use [] inside create single model {}
     // only storing IDs with syntax below 
-    createBooking: [
+    createdBooking: [
         {
             type: Schema.Types.ObjectId,
             // ref helps set up connection between models. passing name of the model to connect to this case 'Booking'
