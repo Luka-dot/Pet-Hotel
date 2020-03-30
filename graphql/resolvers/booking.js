@@ -27,6 +27,7 @@ module.exports = {
             checkOut: dateToString(args.bookingInput.checkOut),
             price: +args.bookingInput.price,
             date: dateToString(args.bookingInput.date),
+            // this will be changed once front-end log in is completed
             creator: '5e813eebe2cd77339caafa98',
             petName: args.bookingInput.petName,
             petType: args.bookingInput.petType,
@@ -37,6 +38,7 @@ module.exports = {
         try {
             const result = await booking.save();
             createdBooking = transformBooking(result);
+            // this will be changed once front-end log in is completed
             const creator = await User.findById('5e813eebe2cd77339caafa98');
 
             if (!creator) {
