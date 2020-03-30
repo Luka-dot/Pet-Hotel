@@ -11,17 +11,3 @@ const rootResolver = {
 };
 
 module.exports = rootResolver;
-
-
-
-
-
-
-//      5e80c76d1f65172aacd92d55
-
-/*
- ...booking._doc,
-        _id: booking.id,
-        date: new Date(booking._doc.date).toISOString(),
-        creator: user.bind(this, booking.creator)
-        */
