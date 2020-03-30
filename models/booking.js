@@ -27,11 +27,22 @@ const bookingSchema = new Schema({
     type: Schema.Types.ObjectId,
     // ref helps set up connection between models. passing name of the model to connect to this case 'User'
     ref: 'User'
+  },
+  petName: {
+    type: String,
+    required: true
+  },
+  petType: {
+    type: String,
+    required: true
+  },
+  petWeight: {
+    type: String,
+    required: true
   }
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);
-
 
 
 /*

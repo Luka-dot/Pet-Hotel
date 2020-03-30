@@ -33,11 +33,10 @@ module.exports = {
             petWeight: +args.bookingInput.petWeight
         });
         let createdBooking;
+        
         try {
             const result = await booking.save();
-
             createdBooking = transformBooking(result);
-
             const creator = await User.findById('5e813eebe2cd77339caafa98');
 
             if (!creator) {
