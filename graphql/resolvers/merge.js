@@ -42,7 +42,6 @@ const user = async userId => {
 };
 
 const transformBooking = bookingToTransform => { //  booking => is the current argument I want to change
-  console.log('bookingtotransf ', bookingToTransform)
   return {
     ...bookingToTransform._doc,
     _id: bookingToTransform.id,
