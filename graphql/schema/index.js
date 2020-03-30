@@ -9,6 +9,9 @@ type Booking {
     price: Float!
     date: String!
     creator: User!
+    petName: String!
+    petType: String!
+    petWeight: Integer!
   }
 type User {
   _id: ID!
@@ -27,6 +30,9 @@ input BookingInput {
     checkOut: String!
     price: Float!
     date: String!
+    petName: String!
+    petType: String!
+    petWeight: Integer!
 }
 input UserInput {
   email: String!

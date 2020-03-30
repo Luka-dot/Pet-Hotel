@@ -6,6 +6,10 @@ const { transformBooking } = require('./merge.js')
 
 module.exports = {
     bookings: async () => {
+        // checking authentication here
+        // if (!req.isAuth) {
+        //     throw new Error('Unauthenticated!');
+        //   }
         try {
             const bookings = await Booking.find();
             return bookings.map(booking => {
@@ -23,7 +27,11 @@ module.exports = {
             checkOut: dateToString(args.bookingInput.checkOut),
             price: +args.bookingInput.price,
             date: dateToString(args.bookingInput.date),
-            creator: '5e813eebe2cd77339caafa98'
+            creator: '5e813eebe2cd77339caafa98',
+            creator: reg.userId,
+            petName: args.bookingInput.petName,
+            petType: args.bookingInput.petType,
+            petWeight: +args.bookingInput.petWeight
         });
         let createdBooking;
         try {
