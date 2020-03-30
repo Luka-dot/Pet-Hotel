@@ -24,6 +24,23 @@ module.exports = mongoose.model('User', userSchema);
 
 
 /*
+const SearchIceCreams = gql`
+  query($searchQuery: String) {
+    listIceCreams(filter: {
+      searchField: {
+        contains: $searchQuery
+      }
+    }) {
+      items {
+        name
+        description
+      }
+    }
+  }
+
+
+
+
 const mongoose = require('mongoose');
 // need schema from mongoose package
 const Schema = mongoose.Schema;

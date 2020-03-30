@@ -57,5 +57,13 @@ module.exports = {
         } catch (err) {
             throw err;
         }
-    }
+    },
+
+     bookingSearch: 
+     
+     async (_, {filter}) => {
+         console.log('filter ',filter,_)
+        const query = JSON.parse(filter)
+        return (await this.bookings.find(query).toArray()).map(prepare)
+      }
 };

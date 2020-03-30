@@ -28,7 +28,9 @@ input UserInput {
   password: String!
 }
 type RootQuery {
+    booking(_id: String): Booking
     bookings: [Booking!]!
+    bookingSearch(filter: String): [Booking!]
 }
 type RootMutation {
     createBooking(bookingInput: BookingInput): Booking
