@@ -48,6 +48,8 @@ const transformBooking = bookingToTransform => { //  booking => is the current a
     _id: bookingToTransform.id,
     date: dateToString(bookingToTransform._doc.date),
     creator: user.bind(this, bookingToTransform.creator),
+    checkIn: dateToString(bookingToTransform._doc.checkIn),
+    checkOut: dateToString(bookingToTransform._doc.checkOut),
     petName: bookingToTransform.petName,
     petType: bookingToTransform.petType,
     petWeight: bookingToTransform.petWeight
