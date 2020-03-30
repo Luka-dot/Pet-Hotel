@@ -27,6 +27,7 @@ module.exports = {
         throw err;
       }
     },
+    
     createBooking: async args => {
       const booking = new Booking({
           customer: args.bookingInput.customer,
@@ -34,7 +35,7 @@ module.exports = {
           checkOut:  dateToString(args.bookingInput.checkOut),
           price: +args.bookingInput.price,
           date: dateToString(args.bookingInput.date),
-          creator: '5e80c76d1f65172aacd92d55'
+          creator: '5e813eebe2cd77339caafa98'
       });
       let createdBooking;
       try {
@@ -42,7 +43,7 @@ module.exports = {
         
         createdBooking = transformBooking(result);
        
-        const creator = await User.findById('5e80c76d1f65172aacd92d55');
+        const creator = await User.findById('5e813eebe2cd77339caafa98');
   
         if (!creator) {
           throw new Error('User not found.');
