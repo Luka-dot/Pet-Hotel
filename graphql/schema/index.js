@@ -30,7 +30,9 @@ input UserInput {
 type RootQuery {
     booking(_id: String): Booking
     bookings: [Booking!]!
-    bookingSearch(filter: String): [Booking!]
+    bookingSearchById(bookingId: ID!): Booking!
+    bookingSearchByDate(checkIn: String!): Booking!
+    bookingSearchByPrice(price: Float!): Booking!
 }
 type RootMutation {
     createBooking(bookingInput: BookingInput): Booking

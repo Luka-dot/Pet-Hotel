@@ -59,11 +59,44 @@ module.exports = {
         }
     },
 
-     bookingSearch: 
+    bookingSearchById: async (_, {filter}) => {
+        
+        const query = _
+        console.log('filter ',_.bookingId)
+        const searchedBooking = await Booking.findById(_.bookingId);
+        console.log('searchBook ', searchedBooking);
+        return searchedBooking
+      },
+
+      bookingSearchByDate: async (_, {filter}) => {
+    
+        console.log('filter ',_.checkIn)
+        const searchedBooking = await Booking.findOne(_);
+        console.log('searchBook ', searchedBooking);
+        return searchedBooking
+      },
+
+      bookingSearchByPrice: async (_, {filter}) => {
+    
+        console.log('filter ',_.price)
+        const searchedBooking = await Booking.findOne(_);
+        console.log('searchBook ', searchedBooking);
+        return searchedBooking
+      } 
      
-     async (_, {filter}) => {
-         console.log('filter ',filter,_)
-        const query = JSON.parse(filter)
-        return (await this.bookings.find(query).toArray()).map(prepare)
-      }
+     
+     
+    //  async (_, {filter}) => {
+    //     console.log('filter ',filter,_)
+    //     //const query = JSON.parse(_)
+    //     return (await this.bookings.find(query).toArray()).map(prepare)
+    //   }
 };
+
+/*
+{
+  bookingSearch(id: "5e813f29e3672109f860bdd1") {
+    customer
+  }
+}
+*/
