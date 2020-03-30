@@ -16,6 +16,11 @@ type User {
   password: String
   createdBookings: [Booking!]
 }
+type AuthData {
+    userId: ID!
+    token: String!
+    tokenExpiration: Int!
+}
 input BookingInput {
     customer: String!
     checkIn: String!
@@ -30,6 +35,7 @@ input UserInput {
 type RootQuery {
     booking(_id: String): Booking
     bookings: [Booking!]!
+    login(email: String!, password: String!): AuthData!
     bookingSearchById(bookingId: ID!): Booking!
     bookingSearchByDate(checkIn: String!): Booking!
     bookingSearchByPrice(price: Float!): Booking!
