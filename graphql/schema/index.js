@@ -11,7 +11,7 @@ type Booking {
     creator: User!
     petName: String!
     petType: String!
-    petWeight: Integer!
+    petWeight: Int!
   }
 type User {
   _id: ID!
@@ -32,7 +32,7 @@ input BookingInput {
     date: String!
     petName: String!
     petType: String!
-    petWeight: Integer!
+    petWeight: Int!
 }
 input UserInput {
   email: String!
@@ -56,3 +56,38 @@ schema {
     mutation: RootMutation
 }
 `);
+
+
+/*
+query {
+  bookingSearchByPrice(price: 55.55) {
+    checkIn
+  }
+}
+
+query {
+  login(email:"test11@test.com", password: "hello") {
+    userId
+    token
+  }
+}
+
+mutation {
+  cancelBooking(bookingId: "5e81400de3672109f860bdd4") {
+    customer
+  }
+}
+
+mutation {
+  createBooking(bookingInput:{customer:"Tom Test", checkIn:"2020-04-01T18:11:26.165Z", checkOut:"2020-04-22T18:11:26.165Z", price: 288.55, date:"2020-03-30T18:11:26.165Z", petName:"Rex", petType: "dog", petWeight: 45 }) {
+    customer
+    checkIn
+    checkOut
+    price
+    petName
+    petType
+    
+  }
+}
+
+*/
