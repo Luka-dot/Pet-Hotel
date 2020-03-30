@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 // this middleware is checking for authentication with token
 // it always be true and allows access to the endpoint, but will only attache token if pass all the if statement
-// this will be implemented in app.js
+// this will is implemented in app.js
 module.exports = (reg, res, next) => {
     // attaching authorization header
     const authHeader = reg.get('Authorization');
