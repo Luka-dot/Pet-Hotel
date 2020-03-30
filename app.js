@@ -12,6 +12,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
+// middleware check for authentication. this will run on every request and give true/false for token auth
+app.use(isAuth);
+
 app.use(
   '/graphql',
   graphqlHttp({
