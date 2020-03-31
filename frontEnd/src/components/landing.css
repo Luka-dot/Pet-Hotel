@@ -1,0 +1,24 @@
+.Login-component {
+    background-image: url(../assets/grass.jpg);
+
+    max-width: 100%;
+    height: 850px;
+    margin: 0;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.loginForm {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: 10%;
+      
+}
+h1 {
+    color:forestgreen;
+    text-align: center;
+}
