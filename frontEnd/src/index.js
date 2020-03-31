@@ -9,6 +9,7 @@ import Booking from './components/booking';
 import { createStore, applyMiddleware, compose } from 'redux';
 import allReducer from './reducers';
 import { Provider } from 'react-redux';
+import NavBar from './components/navbar/navbar';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 // (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -17,6 +18,7 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(allReducer)}>
     <BrowserRouter>
+    <NavBar />
       <Switch>
         <Route path="/" component={LandingPage} exact />
         <Route path="/mainView" component={MainView}  />
