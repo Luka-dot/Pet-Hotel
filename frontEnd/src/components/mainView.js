@@ -6,7 +6,7 @@ class MainView extends Component {
         return(
             <div>
                 <h1> MAIN PAGE </h1>
-            
+                <h1> just a placeholder text</h1>
             </div>
         );
     }

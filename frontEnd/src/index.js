@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import promise from 'redux-promise';
+//import promise from 'redux-promise';
 import './index.css';
 import LandingPage from './components/landingPage';
 import MainView from './components/mainView';
@@ -10,8 +10,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import allReducer from './reducers';
 import { Provider } from 'react-redux';
 import NavBar from './components/navbar/navbar';
+import thunk from "redux-thunk";
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 // (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
