@@ -1,35 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-//import promise from 'redux-promise';
 import './index.css';
-import LandingPage from './components/landingPage';
-import MainView from './components/mainView';
-import Booking from './components/booking';
-import { createStore, applyMiddleware, compose } from 'redux';
-import allReducer from './reducers';
-import { Provider } from 'react-redux';
-<<<<<<< HEAD
-import NavBar from './components/navbar/navbar';
-import thunk from "redux-thunk";
-=======
->>>>>>> parent of ebfd6df... adding nav bar
-
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-// (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
+import App from './App';
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(allReducer)}>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+
+
+
+/*
+ReactDOM.render(
+  
     <BrowserRouter>
       <Switch>
         <Route path="/" component={LandingPage} exact />
         <Route path="/mainView" component={MainView}  />
         <Route path="/booking" component={Booking}  />      
       </Switch>
-    </BrowserRouter>
-  </Provider>,
+    </BrowserRouter>,
+ 
   document.getElementById('root')
 );
+*/
 
 
