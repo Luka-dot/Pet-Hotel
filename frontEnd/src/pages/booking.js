@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
-import BookingList from '../components/bookings/bookingList/bookingList';
+import Modal from '../components/modal/modal';
+import Backdrop from '../components/modal/backdrop';
 import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
 import './booking.css';
 
 class Booking extends Component {
     state = {
+        creating: false,
 
     };
+
     // contextType is passed so we have access to token that needs to be attached to create booking
     static contextType = AuthContext;
 
@@ -27,6 +30,15 @@ class Booking extends Component {
     componentDidMount() {
         
       }
+
+    // when Add Booking is submitted changing state so Modal pops up
+    submittedBookingHandler = () => {
+        this.setState({creating: true})
+    }
+
+    modalCancelHandler = () => {
+        this.setState({ creating: false });
+      };
     
     confirmHandler = (e) => {
         e.preventDefault()
@@ -78,7 +90,9 @@ class Booking extends Component {
               return res.json();
             })
             .then(resData => {
-                console.log(resData);
+                console.log(resData.data);
+
+                this.setState({creating: true})
 
 // ***************** add modal here maybe???  *************************************
             //   if (resData.data.login.token) {
@@ -97,6 +111,15 @@ class Booking extends Component {
 
     render() {
         return (
+            <React.Fragment>
+            {this.state.creating && <Backdrop />}
+            {this.state.creating && <Modal 
+                title="Booking created" 
+                canCancel
+                onCancel={this.modalCancelHandler}
+                >
+                    <p>Modal content</p>
+                </Modal>}
             <div>
                 <h1> BOOKING PAGE </h1>
                 <div className="maindiv">
@@ -108,7 +131,7 @@ class Booking extends Component {
                     <div className="form-control">
                         
                     <form>
-                        <button onClick={this.confirmHandler}> Confirm Booking</button>
+                        <button className="btn-confirm" onClick={this.confirmHandler}> Confirm Booking</button>
                             <div className="form-control">
                                 <label htmlFor="Customer-name">Customer name</label>
                                 <input type="text" id="customer-name" ref={this.customerElRef}></input>
@@ -141,14 +164,16 @@ class Booking extends Component {
                                 <label htmlFor="pet-weight">note</label>
                                 <textarea type="text" row="4" id="note" ref={this.noteElRef}></textarea>
                             </div>
+                            <button className="btn-confirm" type="reset" value="reset">Clear form</button>
                     </form>       
                         
                     </div>
-                            <button>Clear form</button>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+            </React.Fragment>
         );
     }
 }
