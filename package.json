@@ -21,5 +21,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luka-dot/Pet-Hotel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Luka-dot/Pet-Hotel/issues"
+  },
+  "homepage": "https://github.com/Luka-dot/Pet-Hotel#readme"
 }

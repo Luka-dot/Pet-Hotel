@@ -44,7 +44,7 @@ class LandingPage extends Component {
     if (this.state.email.length === 0 || this.state.password.length === 0) {
       return console.log('email or password can not be left empty');
     } else {
-        this.props.fetchLogIn((requestBody))
+        this.props.fetchLogIn(requestBody)
         this.setState({email: ''})
         this.setState({password: ''})
     }
