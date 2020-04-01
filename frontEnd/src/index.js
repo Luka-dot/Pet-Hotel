@@ -9,8 +9,11 @@ import Booking from './components/booking';
 import { createStore, applyMiddleware, compose } from 'redux';
 import allReducer from './reducers';
 import { Provider } from 'react-redux';
+<<<<<<< HEAD
 import NavBar from './components/navbar/navbar';
 import thunk from "redux-thunk";
+=======
+>>>>>>> parent of ebfd6df... adding nav bar
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 // (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -19,7 +22,6 @@ const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(allReducer)}>
     <BrowserRouter>
-    <NavBar />
       <Switch>
         <Route path="/" component={LandingPage} exact />
         <Route path="/mainView" component={MainView}  />
