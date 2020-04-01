@@ -9,6 +9,8 @@ class Booking extends Component {
     state = {
 
     };
+    // contextType is passed so we have access to token that needs to be attached to create booking
+    static contextType = AuthContext;
 
     constructor(props) {
         super(props);
@@ -31,15 +33,65 @@ class Booking extends Component {
         const customer = this.customerElRef.current.value;
         const checkIn = this.checkInElRef.current.value;
         const checkOut = this.checkOutElRef.current.value;
-        const price = this.priceElRef.current.value;
+        const price = +this.priceElRef.current.value;
         const date = new Date();
         const petName = this.petNameElRef.current.value;
         const petType = this.petTypeElRef.current.value;
-        const petWeight = this.petWeightElRef.current.value;
+        const petWeight = +this.petWeightElRef.current.value;
         const note = this.noteElRef.current.value;
         // add validation here if enough time
         const booking = {customer, checkIn, checkOut, price, date, petName, petType, petWeight, note};
         console.log('checking if booking was created ', booking)
+
+        // need attach token to request. Back end requires token middleware/isAuth.js
+        const token = this.context.token;
+
+        const requestBody = {
+              query: `
+              mutation {
+                createBooking(bookingInput:{customer:"${customer}", checkIn:"${checkIn}", checkOut:"${checkOut}", price: ${price}, date:"${date}", petName:"${petName}", petType: "${petType}", petWeight: ${petWeight}, note:"${note}"}) {
+                  customer
+                  checkIn
+                  checkOut
+                  price
+                  petName
+                  petType
+                  petWeight
+                  note
+                }
+              }
+              `
+            };
+      
+          fetch('http://localhost:8000/graphql', {
+            method: 'POST',
+            body: JSON.stringify(requestBody),
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + token
+            }
+          })
+            .then(res => {
+              if (res.status !== 200 && res.status !== 201) {
+                throw new Error('Failed!');
+              }
+              return res.json();
+            })
+            .then(resData => {
+                console.log(resData);
+
+// ***************** add modal here maybe???  *************************************
+            //   if (resData.data.login.token) {
+            //     this.context.login(
+            //       resData.data.login.token,
+            //       resData.data.login.userId,
+            //       resData.data.login.tokenExpiration
+            //     );
+            //  }
+            })
+            .catch(err => {
+              console.log(err);
+            });
     }
 
 
