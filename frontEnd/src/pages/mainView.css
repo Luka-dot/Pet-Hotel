@@ -1,0 +1,33 @@
+.renderdiv {
+    width: 48%; 
+    float:left; 
+    height:700px; 
+    background:gray; 
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  .bookingsdiv {
+    width: 48%; 
+    float:left; 
+    height:100px; 
+    background:blueviolet; 
+    margin-right:10px;
+    margin-left: 5px
+  }
+.status {
+    width: 90%;
+    height: 200px;
+    border: 5px solid #999
+}
+button {
+    float: left;
+    height: 35px;
+    margin-top: 1vh;
+    color: darkorange;
+    background-color: darkgreen;
+}
+.bookingsRender {
+    margin-top: 40px;
+    height: 500px;
+    border: 5px solid #999
+}
