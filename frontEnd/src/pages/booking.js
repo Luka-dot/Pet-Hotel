@@ -12,6 +12,9 @@ class Booking extends Component {
     state = {
         creating: false,
         isLoading: false,
+        customer: '',
+        checkIn: '',
+        petName: ''
     };
 
     // contextType is passed so we have access to token that needs to be attached to create booking
@@ -55,6 +58,7 @@ class Booking extends Component {
         const petWeight = +this.petWeightElRef.current.value;
         const note = this.noteElRef.current.value;
 
+        this.setState({customer: customer, checkIn: checkIn, petName: petName})
         // add validation here if enough time
         const booking = {customer, checkIn, checkOut, price, date, petName, petType, petWeight, note};
         console.log('checking if booking was created ', booking)
@@ -95,7 +99,6 @@ class Booking extends Component {
             })
             .then(resData => {
                 console.log(resData.data);
-
                 this.setState({creating: true})
 
 // ***************** add modal here maybe???  *************************************
@@ -111,7 +114,14 @@ class Booking extends Component {
               console.log(err);
             });
     }
-
+    // this.customerElRef = React.createRef();
+    // this.checkInElRef = React.createRef();
+    // this.checkOutElRef = React.createRef();
+    // this.priceElRef = React.createRef();
+    // this.petNameElRef = React.createRef();
+    // this.petTypeElRef = React.createRef();
+    // this.petWeightElRef = React.createRef();
+    // this.noteElRef = React.createRef();
 
     render() {
         return (
@@ -121,8 +131,11 @@ class Booking extends Component {
                 title="Booking created" 
                 canCancel
                 onCancel={this.modalCancelHandler}
+                customer ={this.customerElRef}
                 >
-                    <p>Modal content</p>
+                <h3>For :&nbsp;&nbsp; {this.state.customer} </h3>
+                <h3> pet name :&nbsp;&nbsp; {this.state.petName}</h3>
+                <h3> check in :&nbsp;&nbsp; {this.state.checkIn}</h3>
                 </Modal>}
             <div>
                 <h1> BOOKING PAGE </h1>

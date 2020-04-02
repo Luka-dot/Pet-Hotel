@@ -16,8 +16,7 @@ class MainView extends Component {
       };
       constructor(props) {
         super(props);
-        this.dateElRef = React.createRef();
-        
+        this.dateElRef = React.createRef();    
     }
     componentDidMount() {
         this.fetchBookings()
@@ -27,9 +26,7 @@ class MainView extends Component {
     }
     
       setDate = () => {
-          
           const date = this.dateElRef.current.value;
-          console.log(date);
           this.setState({ setDate: date });
           this.fetchBookings();
       };
@@ -99,7 +96,7 @@ class MainView extends Component {
                     </div>
                     <div className="maindiv">
                     <div className="renderdiv">this will be floor plan render</div>
-                    <div className="bookingsdiv">this will be right side app render
+                    <div className="bookingsdiv">
                     <div className="status">this will be status component</div>
                     <Link to={'/booking'}><button className="addbtn" > Add Booking</button></Link>
                     <div className="bookingsRender">                   

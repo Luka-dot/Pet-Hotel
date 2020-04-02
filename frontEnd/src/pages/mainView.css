@@ -18,7 +18,8 @@
 .status {
     width: 90%;
     height: 200px;
-    border: 2px solid #999
+    border: 2px solid #999;
+    margin-top: 2vh;
 }
 button {
     background: darkgreen;
@@ -42,5 +43,5 @@ button {
 }
 .dateSelect {
     text-align: center;
-    border: 3px solid green;
+    margin-top: 2vh;
 }
