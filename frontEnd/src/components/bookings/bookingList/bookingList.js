@@ -13,7 +13,7 @@ const bookingList = props => {
                 checkIn={booking.checkIn}         
                 />;
         });
-    return <ul className="booking__list">{bookings}</ul>
+    return <React.Fragment><ul className="booking__list">{bookings}</ul></React.Fragment>
     };
 
 

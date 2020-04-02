@@ -6,7 +6,6 @@ import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
 
 import './booking.css';
-const moment = require('moment');
 
 class Booking extends Component {
     state = {
@@ -34,10 +33,6 @@ class Booking extends Component {
         this.noteElRef = React.createRef();
     }
 
-    componentDidMount() {
-        
-      }
-
     // when Add Booking is submitted changing state so Modal pops up
     submittedBookingHandler = () => {
         this.setState({creating: true})
@@ -55,7 +50,6 @@ class Booking extends Component {
     
     confirmHandler = (e) => {
         e.preventDefault()
-
         const customer = this.customerElRef.current.value;
         const checkIn = (this.checkInElRef.current.value);
         const checkOut = (this.checkOutElRef.current.value);
@@ -122,15 +116,6 @@ class Booking extends Component {
               console.log(err);
             });
     }
-    // this.customerElRef = React.createRef();
-    // this.checkInElRef = React.createRef();
-    // this.checkOutElRef = React.createRef();
-    // this.priceElRef = React.createRef();
-    // this.petNameElRef = React.createRef();
-    // this.petTypeElRef = React.createRef();
-    // this.petWeightElRef = React.createRef();
-    // this.noteElRef = React.createRef();
-
     render() {
         return (
             <React.Fragment>
@@ -157,7 +142,7 @@ class Booking extends Component {
                     <div className="bookingsdiv">this will be right side app render
                 <div className="status">this will be status component</div>
                         
-                        <div className="bookingsRender">
+                    <div className="bookingsRender">
                     <div className="form-control">
                         
                     <form>

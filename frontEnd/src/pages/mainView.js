@@ -4,6 +4,7 @@ import './mainView.css';
 
 import BookingList from '../components/bookings/bookingList/bookingList';
 import Status from '../components/status/status';
+import AddBooking from '../components/addbooking/addBooking'
 import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
 const moment = require('moment');
@@ -14,6 +15,7 @@ class MainView extends Component {
         bookings: [],
         isLoading: false,
         setDate: new Date().toISOString().slice(0,10),
+        addBooking: false,
         activeBookings: null,
         smallPet: 0,
         mediumPet: 0,
@@ -28,6 +30,7 @@ class MainView extends Component {
         const todaysDate = moment();
         const formatedDate = todaysDate.format('YYYY-MM-DD');
         this.setState({setDate : formatedDate})
+        this.setState({addBooking: false})
     }
     
       setDate = () => {
@@ -35,6 +38,11 @@ class MainView extends Component {
           this.setState({ setDate: date });
           this.fetchBookings();
       };
+
+      setAddBooking = () => {
+          this.setState({addBooking: true});
+          
+      }
 
     //  getting all events.
       fetchBookings() {
@@ -114,14 +122,19 @@ class MainView extends Component {
                     <div className="status">
                         <Status status={this.state.bookings}/>                            
                     </div>
+                    {this.state.addBooking}
                     
                     <div className="bookingsRender">            
-                    <Link to={'/booking'}><button className="addbtn" > Add Booking</button></Link>       
-                        {this.state.isLoading ? (
-                        <Spinner />
-                        ) : (
+                    {this.state.addBooking ? (
+                        
+                        <AddBooking />
+                        
+                    ) : (
+                        <React.Fragment>
+                        <button id="addbtn" onClick={this.setAddBooking} > Add Booking</button>
                         <BookingList bookings={this.state.bookings} />
-                        )}
+                        </React.Fragment>
+                    )}
                     </div>
                     </div>
                     </div>
@@ -132,3 +145,8 @@ class MainView extends Component {
     }
 
 export default MainView;
+
+
+/*
+  
+*/
