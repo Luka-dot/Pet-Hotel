@@ -3,6 +3,7 @@ import { Redirect, Link } from "react-router-dom";
 import './mainView.css';
 
 import BookingList from '../components/bookings/bookingList/bookingList';
+import Status from '../components/status/status';
 import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
 const moment = require('moment');
@@ -13,6 +14,10 @@ class MainView extends Component {
         bookings: [],
         isLoading: false,
         setDate: new Date().toISOString().slice(0,10),
+        activeBookings: null,
+        smallPet: 0,
+        mediumPet: 0,
+        largePet: 0,
       };
       constructor(props) {
         super(props);
@@ -46,6 +51,7 @@ class MainView extends Component {
                     date
                     petName
                     petType
+                    petWeight
                     note
             }
           }
@@ -72,20 +78,28 @@ class MainView extends Component {
         const bookings = resData.data.bookings;
         const filterDate = (this.state.setDate);
         const filteredBookings = bookings.filter(function(book) {
-            return book.checkIn == filterDate;
+            return book.checkIn <= filterDate && book.checkOut > filterDate;
         });
-        console.log(filteredBookings)
 
-        this.setState({bookings: filteredBookings, isLoading: false});
+        const smallPet = bookings.filter(function(num) {
+            return num.petWeight <= 20;
+        })
+        const mediumPet = bookings.filter(function(num) {
+            return num.petWeight > 20 && num.petWeight <50;
+        })
+        const largePet = bookings.filter(function(num) {
+            return num.petWeight >= 50;
+        })
+
+        this.setState({bookings: filteredBookings, isLoading: false, activeBookings: filteredBookings.length, smallPet: smallPet.length, mediumPet: mediumPet.length, largePet: largePet.length});
       })
     
     .catch(err => {
       console.log(err);
       this.setState({isLoading: false});
     });
-  }  
-    
-      render() {
+}
+     render() {
         return (
                 <div>
                     <div className="dateSelect">
@@ -97,9 +111,12 @@ class MainView extends Component {
                     <div className="maindiv">
                     <div className="renderdiv">this will be floor plan render</div>
                     <div className="bookingsdiv">
-                    <div className="status">this will be status component</div>
-                    <Link to={'/booking'}><button className="addbtn" > Add Booking</button></Link>
-                    <div className="bookingsRender">                   
+                    <div className="status">
+                        <Status status={this.state.bookings}/>                            
+                    </div>
+                    
+                    <div className="bookingsRender">            
+                    <Link to={'/booking'}><button className="addbtn" > Add Booking</button></Link>       
                         {this.state.isLoading ? (
                         <Spinner />
                         ) : (
@@ -115,46 +132,3 @@ class MainView extends Component {
     }
 
 export default MainView;
-
-
-/*
-.then(res => {
-      if (res.status !== 200 && res.status !== 201) {
-        throw new Error('Failed!');
-      }
-      return res.json();
-    })
-    .then(resData => {
-        const bookings = resData.data.bookings;
-        console.log(bookings)
-        this.setState({bookings: bookings, isLoading: false});
-      })
-
-
-
-render() {
-        return(
-            <div>
-                <h1> MAIN PAGE </h1>
-                <div className="maindiv">
-                <div className="renderdiv">this will be floor plan render</div>
-                <div className="bookingsdiv">this will be right side app render
-                <div className="status">this will be status component</div>
-                <button> Add Booking</button>
-                <div className="bookingsRender">this where bookings will be rendered
-               
-                        {this.state.isLoading ? (
-                    <Spinner />
-                    ) : (
-                    <ul className="bookings__list">
-                        {bookingList} 
-                        </ul>
-                    )}
-            
-                </div>
-                </div>
-                </div>
-            </div>
-        );
-    }
-*/

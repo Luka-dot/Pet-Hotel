@@ -34,7 +34,10 @@ h1 {
   .form-control {
     margin-bottom: 1rem;
   }
-  
+  .form-actions {
+      display: flex;
+      justify-content: center;
+  }
   .form-actions button {
     background: forestgreen;
     font: inherit;

@@ -24,9 +24,8 @@
 button {
     background: darkgreen;
     display: flex;
-    float: left;
-    margin-top: 2vh;
-    margin-left: 17px;
+    float: right;
+    margin-bottom: -3vh;
     font: inherit;
     border: 1px solid darkgreen;
     border-radius: 3px;

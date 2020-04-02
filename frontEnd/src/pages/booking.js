@@ -12,6 +12,7 @@ class Booking extends Component {
     state = {
         creating: false,
         isLoading: false,
+        setDate: null,
         customer: '',
         checkIn: '',
         petName: ''
@@ -22,6 +23,7 @@ class Booking extends Component {
 
     constructor(props) {
         super(props);
+        this.dateElRef = React.createRef();   
         this.customerElRef = React.createRef();
         this.checkInElRef = React.createRef();
         this.checkOutElRef = React.createRef();
@@ -44,6 +46,12 @@ class Booking extends Component {
     modalCancelHandler = () => {
         this.setState({ creating: false });
       };
+
+    setDate = () => {
+        const date = this.dateElRef.current.value;
+        this.setState({ setDate: date });
+        // this.fetchBookings();
+    };
     
     confirmHandler = (e) => {
         e.preventDefault()
@@ -138,7 +146,12 @@ class Booking extends Component {
                 <h3> check in :&nbsp;&nbsp; {this.state.checkIn}</h3>
                 </Modal>}
             <div>
-                <h1> BOOKING PAGE </h1>
+            <div className="dateSelect">
+                    <form>
+                    <label htmlFor="CheckIn">Select Date to Display :&nbsp;&nbsp; </label>
+                    <input type="date" id="currentDate" value={this.state.setDate} ref={this.dateElRef} onChange={this.setDate}></input>
+                    </form>
+                    </div>
                 <div className="maindiv">
                     <div className="renderdiv">this will be floor plan render</div>
                     <div className="bookingsdiv">this will be right side app render
@@ -148,7 +161,6 @@ class Booking extends Component {
                     <div className="form-control">
                         
                     <form>
-                        <button className="btn-confirm" onClick={this.confirmHandler}> Confirm Booking</button>
                             <div className="form-control">
                                 <label htmlFor="Customer-name">Customer name</label>
                                 <input type="text" id="customer-name" ref={this.customerElRef}></input>
@@ -181,6 +193,7 @@ class Booking extends Component {
                                 <label htmlFor="pet-weight">note</label>
                                 <textarea type="text" row="4" id="note" ref={this.noteElRef}></textarea>
                             </div>
+                            <button className="btn-confirm" onClick={this.confirmHandler}> Confirm Booking</button>
                             <button className="btn-confirm" type="reset" value="reset">Clear form</button>
                     </form>       
                         
