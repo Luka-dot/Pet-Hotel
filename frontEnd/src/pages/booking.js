@@ -9,7 +9,7 @@ import './booking.css';
 class Booking extends Component {
     state = {
         creating: false,
-
+        isLoading: false,
     };
 
     // contextType is passed so we have access to token that needs to be attached to create booking
@@ -42,8 +42,9 @@ class Booking extends Component {
     
     confirmHandler = (e) => {
         e.preventDefault()
+
         const customer = this.customerElRef.current.value;
-        const checkIn = this.checkInElRef.current.value;
+        const checkIn = (this.checkInElRef.current.value) = moment().format('YYYY-MM-DD');
         const checkOut = this.checkOutElRef.current.value;
         const price = +this.priceElRef.current.value;
         const date = new Date();
@@ -51,6 +52,7 @@ class Booking extends Component {
         const petType = this.petTypeElRef.current.value;
         const petWeight = +this.petWeightElRef.current.value;
         const note = this.noteElRef.current.value;
+
         // add validation here if enough time
         const booking = {customer, checkIn, checkOut, price, date, petName, petType, petWeight, note};
         console.log('checking if booking was created ', booking)

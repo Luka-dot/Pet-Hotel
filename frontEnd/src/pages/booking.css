@@ -23,6 +23,8 @@ body {
     background: darkgreen;
     float: right;
     font: inherit;
+    margin-top: -3px;
+    margin-bottom: 5px;
     border: 1px solid darkgreen;
     border-radius: 3px;
     padding: 0.25rem 1rem;

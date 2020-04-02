@@ -5,29 +5,42 @@
     background:gray; 
     margin-left: 10px;
     margin-right: 5px;
+    margin-top: 2vh;
   }
   .bookingsdiv {
     width: 48%; 
     float:left; 
     height:100px; 
-    background:blueviolet; 
+    
     margin-right:10px;
     margin-left: 5px
   }
 .status {
     width: 90%;
     height: 200px;
-    border: 5px solid #999
+    border: 2px solid #999
 }
 button {
+    background: darkgreen;
+    display: flex;
     float: left;
-    height: 35px;
-    margin-top: 1vh;
-    color: darkorange;
-    background-color: darkgreen;
+    margin-top: 2vh;
+    margin-left: 17px;
+    font: inherit;
+    border: 1px solid darkgreen;
+    border-radius: 3px;
+    padding: 0.25rem 1rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+    color: white;
+    cursor: pointer;
 }
 .bookingsRender {
     margin-top: 40px;
+    margin-left: -10px;
     height: 500px;
-    border: 5px solid #999
+    border: 1px solid white
+}
+.dateSelect {
+    text-align: center;
+    border: 3px solid green;
 }

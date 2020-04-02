@@ -10,19 +10,29 @@ import AuthContext from '../context/auth-context';
 class MainView extends Component {
     state = {
         creating: false,
-        bookings: []
+        bookings: [],
+        isLoading: false,
+        setDate: new Date()
       };
-    
+      constructor(props) {
+        super(props);
+        this.dateElRef = React.createRef();
+        
+    }
     componentDidMount() {
         this.fetchBookings()
     }
 
-      startCreateEventHandler = () => {
-        // this.setState({ creating: true });
+      setDate = () => {
+          
+          const date = this.dateElRef.current.value;
+          console.log(date);
+          this.setState({ setDate: date });
       };
 
     //  getting all events.
       fetchBookings() {
+          this.setState({isLoading: true});
         const requestBody = {
             query: `
             query {
@@ -59,11 +69,12 @@ class MainView extends Component {
     })
     .then(resData => {
         const bookings = resData.data.bookings;
-        this.setState({bookings: bookings});
+        this.setState({bookings: bookings, isLoading: false});
       })
     
     .catch(err => {
       console.log(err);
+      this.setState({isLoading: false});
     });
   }  
     
@@ -71,7 +82,13 @@ class MainView extends Component {
         return (
             
                 <div>
-                    <h1> MAIN PAGE </h1>
+                    
+                    <div className="dateSelect">
+                    <form>
+                    <label htmlFor="CheckIn">Select Date to Display :&nbsp;&nbsp; </label>
+                    <input type="date" id="currentDate" value={this.state.setDate} ref={this.dateElRef} onChange={this.setDate}></input>
+                    </form>
+                    </div>
                     <div className="maindiv">
                     <div className="renderdiv">this will be floor plan render</div>
                     <div className="bookingsdiv">this will be right side app render

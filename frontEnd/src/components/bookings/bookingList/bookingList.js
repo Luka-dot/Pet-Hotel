@@ -9,7 +9,8 @@ const bookingList = props => {
                 key={booking._id}
                 customer={booking.customer}
                 price={booking.price}   
-                petName={booking.petName}          
+                petName={booking.petName} 
+                checkIn={booking.checkIn}         
                 />;
         });
     return <ul className="booking__list">{bookings}</ul>
