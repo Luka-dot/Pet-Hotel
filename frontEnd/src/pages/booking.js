@@ -4,7 +4,9 @@ import Modal from '../components/modal/modal';
 import Backdrop from '../components/modal/backdrop';
 import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
+
 import './booking.css';
+const moment = require('moment');
 
 class Booking extends Component {
     state = {
@@ -44,8 +46,8 @@ class Booking extends Component {
         e.preventDefault()
 
         const customer = this.customerElRef.current.value;
-        const checkIn = (this.checkInElRef.current.value) = moment().format('YYYY-MM-DD');
-        const checkOut = this.checkOutElRef.current.value;
+        const checkIn = (this.checkInElRef.current.value);
+        const checkOut = (this.checkOutElRef.current.value);
         const price = +this.priceElRef.current.value;
         const date = new Date();
         const petName = this.petNameElRef.current.value;

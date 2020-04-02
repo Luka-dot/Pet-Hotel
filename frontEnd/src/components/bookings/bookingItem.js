@@ -8,7 +8,7 @@ const bookingItem = props => (
      <div> 
         <h4>pet name : {props.petName}</h4>
         <h4>price : {props.price}</h4>
-        <h4>check-in : {new Date(props.checkIn).toLocaleDateString()}</h4>
+        <h4>check-in : {props.checkIn}</h4>
     </div>
     </li>
     

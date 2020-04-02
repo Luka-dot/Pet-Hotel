@@ -5,14 +5,14 @@ import './mainView.css';
 import BookingList from '../components/bookings/bookingList/bookingList';
 import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
-
+const moment = require('moment');
 
 class MainView extends Component {
     state = {
         creating: false,
         bookings: [],
         isLoading: false,
-        setDate: new Date()
+        setDate: new Date().toISOString().slice(0,10),
       };
       constructor(props) {
         super(props);
@@ -21,13 +21,17 @@ class MainView extends Component {
     }
     componentDidMount() {
         this.fetchBookings()
+        const todaysDate = moment();
+        const formatedDate = todaysDate.format('YYYY-MM-DD');
+        this.setState({setDate : formatedDate})
     }
-
+    
       setDate = () => {
           
           const date = this.dateElRef.current.value;
           console.log(date);
           this.setState({ setDate: date });
+          this.fetchBookings();
       };
 
     //  getting all events.
@@ -69,7 +73,13 @@ class MainView extends Component {
     })
     .then(resData => {
         const bookings = resData.data.bookings;
-        this.setState({bookings: bookings, isLoading: false});
+        const filterDate = (this.state.setDate);
+        const filteredBookings = bookings.filter(function(book) {
+            return book.checkIn == filterDate;
+        });
+        console.log(filteredBookings)
+
+        this.setState({bookings: filteredBookings, isLoading: false});
       })
     
     .catch(err => {
@@ -80,9 +90,7 @@ class MainView extends Component {
     
       render() {
         return (
-            
                 <div>
-                    
                     <div className="dateSelect">
                     <form>
                     <label htmlFor="CheckIn">Select Date to Display :&nbsp;&nbsp; </label>
@@ -113,6 +121,20 @@ export default MainView;
 
 
 /*
+.then(res => {
+      if (res.status !== 200 && res.status !== 201) {
+        throw new Error('Failed!');
+      }
+      return res.json();
+    })
+    .then(resData => {
+        const bookings = resData.data.bookings;
+        console.log(bookings)
+        this.setState({bookings: bookings, isLoading: false});
+      })
+
+
+
 render() {
         return(
             <div>
