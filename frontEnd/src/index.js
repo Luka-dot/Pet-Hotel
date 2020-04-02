@@ -13,20 +13,3 @@ ReactDOM.render(
 
 
 
-
-/*
-ReactDOM.render(
-  
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={LandingPage} exact />
-        <Route path="/mainView" component={MainView}  />
-        <Route path="/booking" component={Booking}  />      
-      </Switch>
-    </BrowserRouter>,
- 
-  document.getElementById('root')
-);
-*/
-
-

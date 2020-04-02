@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './status.css';
+
 const status = props => {
     const bookings = props.status.map(booking => {
         return booking.petWeight        
@@ -17,22 +19,39 @@ const status = props => {
                 largePet ++
             }
         });
-       console.log('pets ', smallPet, largePet, mediumPet)
+
        let totalCount = 0;
         const calculateSpace = () => {
             totalCount = Math.ceil((100/960) * ((smallPet * 40) + (mediumPet * 60) + (largePet * 80)));
-
             return totalCount
         }
         calculateSpace()
-        console.log(Math.ceil(totalCount))
+      
+        const allDayPrice = props.status.map(price => {
+            return price.price
+        })
+        console.log('price: ',allDayPrice)
+        let totalPrice = 0;
+        allDayPrice.forEach(element => {
+            totalPrice = totalPrice + element
+            return totalPrice
+        })
+        let numberOfBookings = bookings.length
+        let dayAveragePrice = Math.ceil((totalPrice / numberOfBookings));
 
-    return <div className="booking__list">
-            <h1>Status details</h1>
-            <h4>capacity used :&nbsp;&nbsp;{totalCount}%</h4>
-            <h4>We have&nbsp;&nbsp; {bookings.length}&nbsp;&nbsp;guests </h4>
-    
-    </div>
+
+
+    return <div className="status-display">
+               
+                <h1>Status details</h1>
+                
+                <h4><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
+                <h4><p>We have&nbsp; {bookings.length}&nbsp;&nbsp;guests for this day.</p> </h4>
+                <h4><p>Daily average rate is:&nbsp; {dayAveragePrice}&nbsp;$</p> </h4>
+                
+            </div>
+            
+        
     };
 
 

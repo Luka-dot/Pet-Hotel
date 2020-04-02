@@ -21,9 +21,11 @@ class MainView extends Component {
         mediumPet: 0,
         largePet: 0,
       };
+      
       constructor(props) {
         super(props);
-        this.dateElRef = React.createRef();    
+        this.dateElRef = React.createRef();
+        this.removeAddBooking = this.removeAddBooking.bind(this);
     }
     componentDidMount() {
         this.fetchBookings()
@@ -41,8 +43,11 @@ class MainView extends Component {
 
       setAddBooking = () => {
           this.setState({addBooking: true});
-          
-      }
+        }
+
+        removeAddBooking() {
+            this.setState({addBooking: false});
+        }
 
     //  getting all events.
       fetchBookings() {
@@ -89,17 +94,17 @@ class MainView extends Component {
             return book.checkIn <= filterDate && book.checkOut > filterDate;
         });
 
-        const smallPet = bookings.filter(function(num) {
-            return num.petWeight <= 20;
-        })
-        const mediumPet = bookings.filter(function(num) {
-            return num.petWeight > 20 && num.petWeight <50;
-        })
-        const largePet = bookings.filter(function(num) {
-            return num.petWeight >= 50;
-        })
+        // const smallPet = bookings.filter(function(num) {
+        //     return num.petWeight <= 20;
+        // })
+        // const mediumPet = bookings.filter(function(num) {
+        //     return num.petWeight > 20 && num.petWeight <50;
+        // })
+        // const largePet = bookings.filter(function(num) {
+        //     return num.petWeight >= 50;
+        // })    , smallPet: smallPet.length, mediumPet: mediumPet.length, largePet: largePet.length
 
-        this.setState({bookings: filteredBookings, isLoading: false, activeBookings: filteredBookings.length, smallPet: smallPet.length, mediumPet: mediumPet.length, largePet: largePet.length});
+        this.setState({bookings: filteredBookings, isLoading: false, activeBookings: filteredBookings.length});
       })
     
     .catch(err => {
@@ -126,8 +131,7 @@ class MainView extends Component {
                     
                     <div className="bookingsRender">            
                     {this.state.addBooking ? (
-                        
-                        <AddBooking />
+                        <AddBooking test={this.removeAddBooking} addBooking={this.state.addBooking}/>
                         
                     ) : (
                         <React.Fragment>

@@ -15,6 +15,7 @@ class addSingleBooking extends Component {
         checkIn: '',
         petName: ''
     };
+    
 
     // contextType is passed so we have access to token that needs to be attached to create booking
     static contextType = AuthContext;
@@ -103,6 +104,7 @@ class addSingleBooking extends Component {
             .then(resData => {
                 console.log(resData.data);
                 this.setState({creating: true})
+                
 
             })
             .catch(err => {
