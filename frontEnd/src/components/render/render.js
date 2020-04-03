@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 const render = props => {
-    const bookings = props.status.map(booking => {
+    const bookings = props.status.bookings.map(booking => {
         return booking.petWeight        
         });
         console.log('inside render ', bookings)
@@ -11,13 +11,13 @@ const render = props => {
         bookings.forEach(element => {
             if (element <= 20) {
                 smallPet ++
-            } else if (element >20 && element<50) {
+            } else if (element >20 && element<70) {
                 mediumPet ++
-            } else if (element >= 50) {
+            } else if (element >= 70) {
                 largePet ++
             }
         });
-
+        console.log('medium pet count ', mediumPet)
        let totalCount = 0;
         const calculateSpace = () => {
             totalCount = Math.ceil((100/960) * ((smallPet * 40) + (mediumPet * 60) + (largePet * 80)));
@@ -25,43 +25,13 @@ const render = props => {
         }
         calculateSpace()
 
-        // lets figure out 3 variables, each holding pets with proper size
-        let smallPetArr = [];
-        let mediumPetArr = [];
-        let largePetArr = [];
-        // map bookings and push pets to appropriate array
-        const sortPetsBySize = () => props.status.map(booking =>{
-            if (booking.petWeight < 21 ) {
-                smallPetArr.push(booking)
-            } else if (booking.petWeigh >20 && booking.petWeight < 50) {
-                mediumPetArr.push(booking)
-            } else if ( booking.petWeight >= 50 ) {
-                largePetArr.push(booking)
-            }
-        });
-        sortPetsBySize();
+        // 
         
-        console.log('sm ', smallPetArr);
-        console.log('m ',mediumPetArr)
-        console.log('lg ',largePetArr)
-
-      
-        // const allDayPrice = props.status.map(price => {
-        //     return price.price
-        // })
-        // console.log('price: ',allDayPrice)
-        // let totalPrice = 0;
-        // allDayPrice.forEach(element => {
-        //     totalPrice = totalPrice + element
-        //     return totalPrice
-        // })
-        // let numberOfBookings = bookings.length
-        // let dayAveragePrice = Math.ceil((totalPrice / numberOfBookings));
 
 
 
     return <div className="status-display">
-                <h1>Status details</h1>
+                <h1>This is where wil render lay-out go</h1>
                 <div id="wrapper">
                 <h4 id="capacity-label"><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
                 </div>
@@ -79,4 +49,21 @@ const render = props => {
 <h4><p>We have&nbsp; {bookings.length}&nbsp;&nbsp;guests for this day.</p> </h4>
                 <h4><p>Daily average rate is:&nbsp; {dayAveragePrice}&nbsp;$</p> </h4>
 
+
+
+                // lets figure out 3 variables, each holding pets with proper size
+        // let smallPetArr = [];
+        // let mediumPetArr = [];
+        // let largePetArr = [];
+        // // map bookings and push pets to appropriate array
+        // const sortPetsBySize = () => props.status.map(booking =>{
+        //     if (booking.petWeight < 21 ) {
+        //         smallPetArr.push(booking)
+        //     } else if ( booking.petWeight >= 70 ) {
+        //         largePetArr.push(booking)
+        //     } else {
+        //         mediumPetArr.push(booking)
+        //     }
+        // });
+        // sortPetsBySize();
     */

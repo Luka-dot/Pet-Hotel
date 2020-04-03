@@ -13,9 +13,9 @@ const status = props => {
         bookings.forEach(element => {
             if (element <= 20) {
                 smallPet ++
-            } else if (element >20 && element<50) {
+            } else if (element >20 && element<70) {
                 mediumPet ++
-            } else if (element >= 50) {
+            } else if (element >= 70) {
                 largePet ++
             }
         });

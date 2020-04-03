@@ -18,9 +18,9 @@ class MainView extends Component {
         setDate: new Date().toISOString().slice(0,10),
         addBooking: false,
         activeBookings: null,
-        smallPet: 0,
-        mediumPet: 0,
-        largePet: 0,
+        smallPet: null,
+        mediumPet: null,
+        largePet: null
       };
       
       constructor(props) {
@@ -94,8 +94,23 @@ class MainView extends Component {
         const filteredBookings = bookings.filter(function(book) {
             return book.checkIn <= filterDate && book.checkOut > filterDate;
         });
+        // lets figure out 3 variables, each holding pets with proper size
+        let smallPetArr = [];
+        let mediumPetArr = [];
+        let largePetArr = [];
+        // map bookings and push pets to appropriate array
+        const sortPetsBySize = () => filteredBookings.map(booking =>{
+            if (booking.petWeight < 21 ) {
+                smallPetArr.push(booking)
+            } else if ( booking.petWeight >= 70 ) {
+                largePetArr.push(booking)
+            } else {
+                mediumPetArr.push(booking)
+            }
+        });
+        sortPetsBySize();
 
-        this.setState({bookings: filteredBookings, isLoading: false, activeBookings: filteredBookings.length});
+        this.setState({bookings: filteredBookings, isLoading: false, activeBookings: filteredBookings.length, smallPet : smallPetArr, mediumPet: mediumPetArr, largePet: largePetArr });
       })
     
     .catch(err => {
@@ -114,7 +129,7 @@ class MainView extends Component {
                     </div>
                     <div className="maindiv">
                     <div className="renderdiv">
-                        <Render status={this.state.bookings} />
+                        <Render status={this.state} />
                     </div>
                     <div className="bookingsdiv">
                     <div className="status">
