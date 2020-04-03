@@ -5,6 +5,7 @@ import Backdrop from '../modal/backdrop';
 import Spinner from '../spinner/spinner';
 import AuthContext from '../../context/auth-context';
 
+import './addBooking.css';
 
 class addSingleBooking extends Component {
     state = {
@@ -129,7 +130,7 @@ class addSingleBooking extends Component {
                                 
               <div className="form-control">
                         
-                    <form>
+                    <form className="form">
                             <div className="form-control">
                                 <label htmlFor="Customer-name">Customer name</label>
                                 <input type="text" id="customer-name" ref={this.customerElRef}></input>

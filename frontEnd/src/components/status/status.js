@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Progress } from 'semantic-ui-react'
+import { Button, Sticky, Progress } from 'semantic-ui-react'
 import './status.css';
 
 const status = props => {
@@ -41,7 +41,8 @@ const status = props => {
 
 
 
-    return <div className="status-display">
+    return <Sticky>
+            <div className="status-display">
                
                 <h1>Status details</h1>
                 <div id="wrapper">
@@ -52,7 +53,7 @@ const status = props => {
                 <h4><p>Daily average rate is:&nbsp; {dayAveragePrice}&nbsp;$</p> </h4>
                 
             </div>
-            
+        </Sticky>  
         
     };
 

@@ -94,16 +94,6 @@ class MainView extends Component {
             return book.checkIn <= filterDate && book.checkOut > filterDate;
         });
 
-        // const smallPet = bookings.filter(function(num) {
-        //     return num.petWeight <= 20;
-        // })
-        // const mediumPet = bookings.filter(function(num) {
-        //     return num.petWeight > 20 && num.petWeight <50;
-        // })
-        // const largePet = bookings.filter(function(num) {
-        //     return num.petWeight >= 50;
-        // })    , smallPet: smallPet.length, mediumPet: mediumPet.length, largePet: largePet.length
-
         this.setState({bookings: filteredBookings, isLoading: false, activeBookings: filteredBookings.length});
       })
     

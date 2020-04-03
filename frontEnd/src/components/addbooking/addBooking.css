@@ -1,0 +1,50 @@
+body {
+    margin: 5;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  .form {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  }
+  
+  .form-control label,
+  .form-control input,
+  .form-control textarea {
+    width: 90%;
+    display: block;
+  }
+  
+  .form-control label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-control {
+    margin-bottom: 1rem;
+    margin-left: 1vh;
+    margin-right: -1vh;
+  }
+  
+  .btn-confirm {
+    background: darkgreen;
+    display: flex;
+    float: right;
+    font: inherit;
+    margin-top: -3px;
+    margin-bottom: 5px;
+    margin-left: 1rem;
+    border: 1px solid darkgreen;
+    border-radius: 3px;
+    padding: 0.25rem 1rem;
+    margin-right: 0vh;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .form-actions button:hover,
+  .form-actions button:active,
+  .btn-confirm:hover,
+  .btn-confirm:active {
+    background: #19d677;
+    border-color: #316442;
+  }
