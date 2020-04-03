@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import AuthContext from '../../context/auth-context';
 import './navbar.css';
@@ -25,10 +25,7 @@ const navBar = props => (
                     <NavLink to="/mainView">Main</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/booking">Booking</NavLink>
-                  </li>
-                  <li>
-                    <button onClick={context.logout} >Logout</button>
+                    <Link to="/"><button id="log-out-button" onClick={context.logout} >Logout</button></Link>
                   </li>
                 </React.Fragment>
               )}

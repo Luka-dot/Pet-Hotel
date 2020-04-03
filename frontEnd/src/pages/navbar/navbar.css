@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    z-index: 1;
   }
   
   .main-navigation__logo h1 {
@@ -31,12 +32,12 @@
   }
   
   .main-navigation__items li {
-    margin: 0 1rem;
+    margin: 0 2rem;
   }
   
 .main-navigation__items a,
 .main-navigation__items button {
-    text-decoration: none;
+    
     color: white;
     padding: 0.25rem 0.5rem;
     border: none;
@@ -55,4 +56,9 @@
     background: #ffffff;
     color: #0611DE;
     border-radius: 5px;
+  }
+  #log-out-button {
+    height: 60%;
+    margin-bottom: 2px;
+    width: 100%;
   }
