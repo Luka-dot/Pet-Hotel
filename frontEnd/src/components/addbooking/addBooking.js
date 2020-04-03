@@ -60,7 +60,17 @@ class addSingleBooking extends Component {
         const date = new Date();
         const petName = this.petNameElRef.current.value;
         const petType = this.petTypeElRef.current.value;
-        const petWeight = +this.petWeightElRef.current.value;
+        let petWeight = "";
+        let tempValueHolder = this.petWeightElRef.current.value;
+        let tempToInt = parseInt(tempValueHolder)
+        if (tempToInt <21) {
+          petWeight = "small";
+        } else if (tempToInt > 70) {
+          petWeight = "large";
+        } else {
+          petWeight = "medium";
+        }
+        
         const note = this.noteElRef.current.value;
 
         this.setState({customer: customer, checkIn: checkIn, petName: petName})
@@ -70,11 +80,11 @@ class addSingleBooking extends Component {
 
         // need attach token to request. Back end requires token middleware/isAuth.js
         const token = this.context.token;
-
+        console.log(petWeight)
         const requestBody = {
               query: `
               mutation {
-                createBooking(bookingInput:{customer:"${customer}", checkIn:"${checkIn}", checkOut:"${checkOut}", price: ${price}, date:"${date}", petName:"${petName}", petType: "${petType}", petWeight: ${petWeight}, note:"${note}"}) {
+                createBooking(bookingInput:{customer:"${customer}", checkIn:"${checkIn}", checkOut:"${checkOut}", price: ${price}, date:"${date}", petName:"${petName}", petType: "${petType}", petWeight: "${petWeight}", note:"${note}"}) {
                   customer
                   checkIn
                   checkOut
@@ -87,7 +97,7 @@ class addSingleBooking extends Component {
               }
               `
             };
-      
+            console.log(requestBody)
           fetch('http://localhost:8000/graphql', {
             method: 'POST',
             body: JSON.stringify(requestBody),

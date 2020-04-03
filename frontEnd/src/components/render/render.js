@@ -12,7 +12,7 @@ const render = props => {
                     checkOut={booking.checkOut}
                     petType={booking.petType}
                     petWeight={booking.petWeight}
-                    note={booking.note}         
+                    note={booking.note}        
                     />;
             });
         return <React.Fragment><ul className="small-render-list">{bookings}</ul></React.Fragment>

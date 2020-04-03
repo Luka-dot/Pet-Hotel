@@ -11,22 +11,22 @@ const status = props => {
         let mediumPet = 0;
         let largePet = 0;
         bookings.forEach(element => {
-            if (element <= 20) {
+            if (element == "small") {
                 smallPet ++
-            } else if (element >20 && element<70) {
+            } else if (element == "medium") {
                 mediumPet ++
-            } else if (element >= 70) {
+            } else if (element == "large") {
                 largePet ++
             }
         });
-
+        console.log(smallPet, mediumPet, largePet)
        let totalCount = 0;
         const calculateSpace = () => {
             totalCount = Math.ceil((100/960) * ((smallPet * 40) + (mediumPet * 60) + (largePet * 80)));
             return totalCount
         }
         calculateSpace()
-      
+        console.log(totalCount)
         const allDayPrice = props.status.map(price => {
             return price.price
         })
