@@ -1,44 +1,25 @@
 import React, { Component } from 'react'
+import RenderItem from './renderItem';
 
 const render = props => {
-    const bookings = props.status.bookings.map(booking => {
-        return booking.petWeight        
-        });
-        console.log('inside render ', bookings)
-        let smallPet = 0;
-        let mediumPet = 0;
-        let largePet = 0;
-        bookings.forEach(element => {
-            if (element <= 20) {
-                smallPet ++
-            } else if (element >20 && element<70) {
-                mediumPet ++
-            } else if (element >= 70) {
-                largePet ++
-            }
-        });
-        console.log('medium pet count ', mediumPet)
-       let totalCount = 0;
-        const calculateSpace = () => {
-            totalCount = Math.ceil((100/960) * ((smallPet * 40) + (mediumPet * 60) + (largePet * 80)));
-            return totalCount
-        }
-        calculateSpace()
-
-        // 
+    const bookings = props.smallPet.map(booking => {
+            return <RenderItem    
+                    key={booking._id}
+                    customer={booking.customer}
+                    price={booking.price}   
+                    petName={booking.petName} 
+                    checkIn={booking.checkIn}
+                    checkOut={booking.checkOut}
+                    petType={booking.petType}
+                    petWeight={booking.petWeight}
+                    note={booking.note}         
+                    />;
+            });
+        return <React.Fragment><ul className="small-render-list">{bookings}</ul></React.Fragment>
         
 
 
 
-    return <div className="status-display">
-                <h1>This is where wil render lay-out go</h1>
-                <div id="wrapper">
-                <h4 id="capacity-label"><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
-                </div>
-                
-                
-            </div>
-         
         
     };
 
@@ -66,4 +47,16 @@ const render = props => {
         //     }
         // });
         // sortPetsBySize();
+
+
+        
+    return <div className="status-display">
+                <h1>This is where wil render lay-out go</h1>
+                <div id="wrapper">
+                <h4 id="capacity-label"><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
+                </div>
+                
+                
+            </div>
+         
     */
