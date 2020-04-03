@@ -25,7 +25,7 @@ class MainView extends Component {
       constructor(props) {
         super(props);
         this.dateElRef = React.createRef();
-        this.removeAddBooking = this.removeAddBooking.bind(this);
+        
     }
     componentDidMount() {
         this.fetchBookings()

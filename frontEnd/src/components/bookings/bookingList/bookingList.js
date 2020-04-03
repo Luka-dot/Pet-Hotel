@@ -10,7 +10,11 @@ const bookingList = props => {
                 customer={booking.customer}
                 price={booking.price}   
                 petName={booking.petName} 
-                checkIn={booking.checkIn}         
+                checkIn={booking.checkIn}
+                checkOut={booking.checkOut}
+                petType={booking.petType}
+                petWeight={booking.petWeight}
+                note={booking.note}         
                 />;
         });
     return <React.Fragment><ul className="booking__list">{bookings}</ul></React.Fragment>

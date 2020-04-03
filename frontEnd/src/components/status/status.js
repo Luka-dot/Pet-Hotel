@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button, Progress } from 'semantic-ui-react'
 import './status.css';
 
 const status = props => {
@@ -44,8 +44,10 @@ const status = props => {
     return <div className="status-display">
                
                 <h1>Status details</h1>
-                
-                <h4><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
+                <div id="wrapper">
+                <h4 id="capacity-label"><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
+                <Progress id="progress-bar" percent={totalCount} indicating color='green' />
+                </div>
                 <h4><p>We have&nbsp; {bookings.length}&nbsp;&nbsp;guests for this day.</p> </h4>
                 <h4><p>Daily average rate is:&nbsp; {dayAveragePrice}&nbsp;$</p> </h4>
                 
