@@ -1,0 +1,56 @@
+.small-render-list {
+   margin-left: -35px; 
+}
+.divTableS{
+	display: table;
+  
+  width: 28%;
+  height: 70;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin-top: 0.8vh;
+  border-radius: 5px;
+}
+.divTableRowS {
+  display: table-row;
+  
+}
+.divTableHeadingS {
+	background-color: rgb(221, 233, 221);
+	display: table-header-group;
+}
+.divTableCellS, .divTableHeadS {
+	
+	display: table-cell;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+.divTableHeadingS {
+	background-color: rgb(221, 233, 221);
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFootS {
+	background-color: rgb(221, 233, 221);
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBodyS {
+  display: table-row-group;
+  width: 28%;
+}
+.divTableBodyS:hover { 
+  background-color: rgb(243, 250, 243);
+  display: table-row-group;
+  transition: transform .3s;
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+}
+.divTableBodyS:hover .divTableRow2 {
+  display: table-row;
+ 
+}
+.divTableRow2 {
+  display: none;
+  
+}

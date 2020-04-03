@@ -18,7 +18,7 @@ class MainView extends Component {
         setDate: new Date().toISOString().slice(0,10),
         addBooking: false,
         activeBookings: null,
-        smallPet: null,
+        smallPet: [],
         mediumPet: null,
         largePet: null
       };
@@ -129,7 +129,7 @@ class MainView extends Component {
                     </div>
                     <div className="maindiv">
                     <div className="renderdiv">
-                        <Render status={this.state} />
+                        <Render renderStatus={this.state.smallPet} />
                     </div>
                     <div className="bookingsdiv">
                     <div className="status">

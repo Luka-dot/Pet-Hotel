@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import RenderItem from './renderItem';
 
 const render = props => {
-    const bookings = props.smallPet.map(booking => {
+    const bookings = props.renderStatus.map(booking => {
             return <RenderItem    
                     key={booking._id}
                     customer={booking.customer}
