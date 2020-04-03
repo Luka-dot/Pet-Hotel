@@ -4,7 +4,8 @@ import './mainView.css';
 
 import BookingList from '../components/bookings/bookingList/bookingList';
 import Status from '../components/status/status';
-import AddBooking from '../components/addbooking/addBooking'
+import AddBooking from '../components/addbooking/addBooking';
+import Render from '../components/render/render';
 import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
 const moment = require('moment');
@@ -112,7 +113,9 @@ class MainView extends Component {
                     </form>
                     </div>
                     <div className="maindiv">
-                    <div className="renderdiv">this will be floor plan render</div>
+                    <div className="renderdiv">
+                        <Render status={this.state.bookings} />
+                    </div>
                     <div className="bookingsdiv">
                     <div className="status">
                         <Status status={this.state.bookings}/>                            

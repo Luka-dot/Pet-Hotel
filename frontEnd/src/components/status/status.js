@@ -6,7 +6,7 @@ const status = props => {
     const bookings = props.status.map(booking => {
         return booking.petWeight        
         });
-        console.log('inside status ', bookings)
+        
         let smallPet = 0;
         let mediumPet = 0;
         let largePet = 0;
@@ -30,7 +30,7 @@ const status = props => {
         const allDayPrice = props.status.map(price => {
             return price.price
         })
-        console.log('price: ',allDayPrice)
+        
         let totalPrice = 0;
         allDayPrice.forEach(element => {
             totalPrice = totalPrice + element

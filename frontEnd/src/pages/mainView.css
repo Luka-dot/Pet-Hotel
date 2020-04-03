@@ -1,11 +1,12 @@
 .renderdiv {
     width: 48%; 
     float:left; 
-    height:700px; 
-    background:gray; 
+    height:700px;  
     margin-left: 10px;
     margin-right: 5px;
     margin-top: 2vh;
+    border-color: indigo;
+    border-style: dotted;
   }
   .bookingsdiv {
     width: 48%; 
