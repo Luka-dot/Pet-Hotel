@@ -26,7 +26,7 @@ const render = props => {
     console.log('Arrays ', leftSideBookings , rightSideBookings)
 
     const bookingsLeft = leftSideBookings.map(booking => {
-            return <RenderItem    
+        return <RenderItem    
                     key={booking._id}
                     customer={booking.customer}
                     price={booking.price}   
@@ -36,29 +36,29 @@ const render = props => {
                     petType={booking.petType}
                     petWeight={booking.petWeight}
                     note={booking.note}        
-                    />;
-            });
+                />;
+    });
 
-            const bookingsRight = rightSideBookings.map(booking => {
-                return <RenderItem    
-                        key={booking._id}
-                        customer={booking.customer}
-                        price={booking.price}   
-                        petName={booking.petName} 
-                        checkIn={booking.checkIn}
-                        checkOut={booking.checkOut}
-                        petType={booking.petType}
-                        petWeight={booking.petWeight}
-                        note={booking.note}        
-                        />;
-                });
+    const bookingsRight = rightSideBookings.map(booking => {
+        return <RenderItem    
+                    key={booking._id}
+                    customer={booking.customer}
+                    price={booking.price}   
+                    petName={booking.petName} 
+                    checkIn={booking.checkIn}
+                    checkOut={booking.checkOut}
+                    petType={booking.petType}
+                    petWeight={booking.petWeight}
+                    note={booking.note}        
+                />;
+    });
 
         return <React.Fragment>
-                        <div><ul className="small-render-list">{bookingsLeft}</ul></div>
-                        <div id="middle">middle</div>
-                        <div><ul className="small-render-list-left">{bookingsRight}</ul></div>
+                    <div><ul className="small-render-list">{bookingsLeft}</ul></div>
+                    <div id="middle">middle</div>
+                    <div><ul className="small-render-list-left">{bookingsRight}</ul></div>
                 </React.Fragment>    
-    };
+};
 
     export default render;
 
