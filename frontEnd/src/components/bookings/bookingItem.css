@@ -1,3 +1,11 @@
+h3 {
+  font-weight: 800;
+}
+.inner-text {
+  font-family: sans-serif;
+  color: brown;
+}
+
 .divTable{
 	display: table;
   width: 100%;

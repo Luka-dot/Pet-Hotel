@@ -1,11 +1,12 @@
 .small-render-list {
-   margin-left: -35px; 
+   margin-left: -35px;
+   
 }
 .divTableS{
 	display: table;
   
-  width: 28%;
-  height: 70;
+  width: 100%;
+  
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin-top: 0.8vh;
@@ -25,19 +26,44 @@
     padding-top: 10px;
     padding-left: 15px;
 }
-.divTableHeadingS {
-	background-color: rgb(221, 233, 221);
-	display: table-header-group;
-	font-weight: bold;
+
+.small {
+  display: flex;
+  max-width: 30%;
+  height: 10%;
+  min-height: 4vh;
+  background-color: khaki;
+  margin-top: 2px;
+  border-radius: 8px;
+  border: 2px;
+  border-color: black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }
-.divTableFootS {
-	background-color: rgb(221, 233, 221);
-	display: table-footer-group;
-	font-weight: bold;
+.medium {
+  display: flex;
+  width: 30%;
+  min-height: 6vh;
+  background-color: skyblue ;
+  margin-top: 2px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }
-.divTableBodyS {
-  display: table-row-group;
-  width: 28%;
+.large {
+  display: flex;
+  width: 30%;
+  min-height: 10vh;
+  background-color: lightcoral;
+  margin-top: 2px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+}
+.small:hover  { 
+  background-color: rgb(161, 243, 161);
+  display: flex;
+  transform: translate(100px, 20px) scaleY(1.8) scaleX(1.5);
+  transition: transform .8s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+  display: show;
 }
 .divTableBodyS:hover { 
   background-color: rgb(243, 250, 243);
