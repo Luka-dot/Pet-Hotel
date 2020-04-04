@@ -54,9 +54,11 @@ const render = props => {
     });
 
         return <React.Fragment>
-                    <div><ul className="small-render-list">{bookingsLeft}</ul></div>
-                    <div id="middle">middle</div>
-                    <div><ul className="small-render-list-left">{bookingsRight}</ul></div>
+                <div className="renderdiv2">
+                    <div className="small-render-list">{bookingsLeft}</div>
+                    <div className="small-render-list-middle">middle</div>
+                    <div className="small-render-list-left">{bookingsRight}</div>
+                    </div>
                 </React.Fragment>    
 };
 

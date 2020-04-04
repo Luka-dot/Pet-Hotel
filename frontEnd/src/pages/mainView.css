@@ -10,7 +10,7 @@
     border-style: dotted;
   }
   .renderdiv ul {float: left;}
-  
+
   .bookingsdiv {
     width: 48%; 
     float:left; 
@@ -21,12 +21,12 @@
   }
 
 #addbtn {
-    background: darkgreen;
+    background: #789166;
     display: flex;
     float: right;
     margin-bottom: -1vh;
     font: inherit;
-    border: 1px solid darkgreen;
+    border: 1px solid white;
     border-radius: 3px;
     padding: 0.25rem 1rem;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);

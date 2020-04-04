@@ -10,7 +10,7 @@ const renderItem = props => (
 
         <div className="divTableRowS">
 
-            <h4 className="divTableCellS">pet name: &nbsp;{props.petName}</h4>
+            <h4 className="divTableCellS">Name: &nbsp;{props.petName}</h4>
         </div>
         <div className="divTableRow2">
             <h4 className="divTableCellS">customer:&nbsp; {props.customer}</h4>
