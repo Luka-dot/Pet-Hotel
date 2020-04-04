@@ -1,6 +1,10 @@
 .small-render-list {
    margin-left: -35px;
-   
+   margin-top: 19px;
+}
+.small-render-list-left {
+  margin-top: 0px;
+  
 }
 .divTableS{
 	display: table;
@@ -79,4 +83,9 @@
 .divTableRow2 {
   display: none;
   
+}
+#middle {
+  display: block;
+  width: 100%;
+  background-color:yellow;
 }
