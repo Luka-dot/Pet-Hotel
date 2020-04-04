@@ -15,12 +15,7 @@ const render = props => {
                     note={booking.note}        
                     />;
             });
-        return <React.Fragment><ul className="small-render-list">{bookings}</ul></React.Fragment>
-        
-
-
-
-        
+        return <React.Fragment><ul className="small-render-list">{bookings}</ul></React.Fragment>    
     };
 
     export default render;
