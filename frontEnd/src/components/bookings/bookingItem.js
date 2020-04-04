@@ -6,7 +6,7 @@ const bookingItem = props => (
 
     <li key={props.key} className="divTable">
         
-      return (
+     
         <div className="divTableBody">
             <div className="divTableRow">
                 <h3 className="divTableCell"><a className="inner-text">customer:</a>&nbsp; {props.customer}</h3>
@@ -22,7 +22,7 @@ const bookingItem = props => (
             </div>
             <div className="divTableRow2">
                 <h5 className="divTableCell">note:&nbsp; {props.note}</h5>
-                <button className="divTableCell" onClick={props.onDetail.bind(props.id)} value={props.id}>{props.id}</button>
+                <button className="divTableCell" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
             </div>
         </div>
     

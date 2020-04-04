@@ -17,12 +17,15 @@ class MainView extends Component {
         isLoading: false,
         setDate: new Date().toISOString().slice(0,10),
         addBooking: false,
+        bookingToDelete: null,
         activeBookings: null,
         selectedBooking: null,
         smallPet: [],
         mediumPet: null,
         largePet: null
       };
+
+      static contextType = AuthContext;
       
       constructor(props) {
         super(props);
@@ -37,30 +40,30 @@ class MainView extends Component {
         this.setState({addBooking: false})
     }
     
-      setDate = () => {
-          const date = this.dateElRef.current.value;
-          this.setState({ setDate: date });
-          this.fetchBookings();
-      };
+    setDate = () => {
+        const date = this.dateElRef.current.value;
+        this.setState({ setDate: date });
+        this.fetchBookings();
+    };
 
-      setAddBooking = () => {
-          this.setState({addBooking: true});
-        }
+    setAddBooking = () => {
+        this.setState({addBooking: true});
+    }
 
-        removeAddBooking() {
-            this.setState({addBooking: false});
-        }
+    removeAddBooking() {
+        this.setState({addBooking: false});
+    }
 
-        showDetailHandler(e)  {
-            console.log(e.target.value)
-            
-            //   const selectedBooking = this.state.bookings.find(e => e._id === props.id);
-            //   console.log(selectedBooking)
-            //   return { selectedBooking: selectedBooking };
-          
-          };
+    showDetailHandler = (e) => {
+        let bookingToCancel = e.target.value
+        console.log('ID of booking to cancel ',bookingToCancel)
+        this.setState({bookingToDelete: bookingToCancel})
+        
+        this.deleteBooking(bookingToCancel)   
+    };
+    
 
-    //  getting all events.
+    //************GET BOOKINGS  ***************************/
       fetchBookings() {
           this.setState({isLoading: true});
         const requestBody = {
@@ -127,8 +130,50 @@ class MainView extends Component {
       console.log(err);
       this.setState({isLoading: false});
     });
-
+}
     
+//   *********************DELETE Bookings
+deleteBooking(idValue) {
+   
+    console.log('inside delete fetch ', idValue)
+    const requestBody = {
+      query: `
+      mutation CancelBooking($id: ID!) {
+          cancelBooking(bookingId: $id) {
+          _id
+          customer
+          }
+        }
+      `,
+      variables: {
+          id: idValue
+        }
+    }
+      
+      fetch('http://localhost:8000/graphql', {
+         method: 'POST',
+          body: JSON.stringify(requestBody),
+          headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.context.token
+        }
+    })
+      .then(res => {
+          if (res.status !== 200 && res.status !== 201) {
+          throw new Error('Failed!');
+      }
+      return res.json();
+  })
+  .then(resData => {
+        console.log('booking was deleted ',resData);
+        let newArray = this.state.bookings.filter(el => el._id != idValue);
+        this.setState({bookings: newArray})
+        this.setState({bookingToDelete: null})
+      return
+  })
+  .catch(err => {
+      console.log(err);
+  });
 }
      render() {
         return (
@@ -175,5 +220,58 @@ export default MainView;
 
 
 /*
-  
+  mutation {
+  cancelBooking(bookingId:"5e88af685c62881dec99f978") {
+    _id
+    customer
+  }
+}
+
+
+
+
+//   *********************DELETE Bookings
+  deleteBooking() {
+  const requestBody = {
+    query: `
+    mutation CancelBooking($id: ID!) {
+        cancelBooking(bookingId: $id) {
+        _id
+        customer
+        }
+      }
+    `,
+    variables: {
+        id: this.state.bookingToDelete
+    }
+    
+    }
+    
+    fetch('http://localhost:8000/graphql', {
+       method: 'POST',
+        body: JSON.stringify(requestBody),
+        headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.context.token
+    }
+})
+    .then(res => {
+        if (res.status !== 200 && res.status !== 201) {
+        throw new Error('Failed!');
+    }
+    return res.json();
+})
+.then(resData => {
+   
+    return console.log(resData);
+    
+})
+.catch(err => {
+    console.log(err);
+});
+};
+
+
+
+
 */
