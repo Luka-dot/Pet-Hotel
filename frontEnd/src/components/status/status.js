@@ -26,7 +26,7 @@ const status = props => {
         return totalCount
     }
     calculateSpace()
-    console.log(totalCount)
+    
     const allDayPrice = props.status.map(price => {
         return price.price
     })

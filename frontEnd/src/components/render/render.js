@@ -2,7 +2,30 @@ import React, { Component } from 'react'
 import RenderItem from './renderItem';
 
 const render = props => {
-    const bookings = props.renderStatus.map(booking => {
+
+    // sorting logic, sorting by size and calculating volume of the space needed for assignment.
+    let leftCount = 0;
+    let leftSideBookings = [];
+    let rightSideBookings = [];
+
+    props.renderStatus.map(element => {
+        if (element.petWeight == "small" && leftCount < 11) {
+            leftCount = leftCount +1;
+            leftSideBookings.push(element);
+        } else if (element.petWeight == "medium" && leftCount < 10.5) {
+            leftCount = leftCount +1.5;
+            leftSideBookings.push(element);
+        } else if (element.petWeight == "large" && leftCount < 10) {
+            leftCount = leftCount + 2;
+            leftSideBookings.push(element);
+        } else {
+            rightSideBookings.push(element);
+        }
+    })
+    console.log('count ', leftCount)
+    console.log('Arrays ', leftSideBookings , rightSideBookings)
+
+    const bookingsLeft = leftSideBookings.map(booking => {
             return <RenderItem    
                     key={booking._id}
                     customer={booking.customer}
@@ -15,7 +38,26 @@ const render = props => {
                     note={booking.note}        
                     />;
             });
-        return <React.Fragment><ul className="small-render-list">{bookings}</ul><div id="middle">middle</div><ul className="small-render-list-left">{bookings}</ul></React.Fragment>    
+
+            const bookingsRight = rightSideBookings.map(booking => {
+                return <RenderItem    
+                        key={booking._id}
+                        customer={booking.customer}
+                        price={booking.price}   
+                        petName={booking.petName} 
+                        checkIn={booking.checkIn}
+                        checkOut={booking.checkOut}
+                        petType={booking.petType}
+                        petWeight={booking.petWeight}
+                        note={booking.note}        
+                        />;
+                });
+
+        return <React.Fragment>
+                        <div><ul className="small-render-list">{bookingsLeft}</ul></div>
+                        <div id="middle">middle</div>
+                        <div><ul className="small-render-list-left">{bookingsRight}</ul></div>
+                </React.Fragment>    
     };
 
     export default render;
