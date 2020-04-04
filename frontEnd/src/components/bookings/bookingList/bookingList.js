@@ -7,6 +7,7 @@ const bookingList = props => {
     const bookings = props.bookings.map(booking => {
         return <BookingItem
             key={booking._id}
+            id={booking._id}
             customer={booking.customer}
             price={booking.price}
             petName={booking.petName}
@@ -15,6 +16,7 @@ const bookingList = props => {
             petType={booking.petType}
             petWeight={booking.petWeight}
             note={booking.note}
+            onDetail={props.onViewDetail}
         />;
     });
     return <React.Fragment><ul className="booking__list">{bookings}</ul></React.Fragment>

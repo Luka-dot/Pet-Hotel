@@ -18,6 +18,7 @@ class MainView extends Component {
         setDate: new Date().toISOString().slice(0,10),
         addBooking: false,
         activeBookings: null,
+        selectedBooking: null,
         smallPet: [],
         mediumPet: null,
         largePet: null
@@ -49,6 +50,15 @@ class MainView extends Component {
         removeAddBooking() {
             this.setState({addBooking: false});
         }
+
+        showDetailHandler(e)  {
+            console.log(e.target.value)
+            
+            //   const selectedBooking = this.state.bookings.find(e => e._id === props.id);
+            //   console.log(selectedBooking)
+            //   return { selectedBooking: selectedBooking };
+          
+          };
 
     //  getting all events.
       fetchBookings() {
@@ -117,6 +127,8 @@ class MainView extends Component {
       console.log(err);
       this.setState({isLoading: false});
     });
+
+    
 }
      render() {
         return (
@@ -144,7 +156,10 @@ class MainView extends Component {
                     ) : (
                         <React.Fragment>
                         <button id="addbtn" onClick={this.setAddBooking} > Add Booking</button>
-                        <BookingList bookings={this.state.bookings} />
+                        <BookingList 
+                                bookings={this.state.bookings}
+                                onViewDetail={this.showDetailHandler}
+                                        />
                         </React.Fragment>
                     )}
                     </div>
