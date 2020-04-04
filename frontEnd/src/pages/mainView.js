@@ -129,7 +129,7 @@ class MainView extends Component {
                     </div>
                     <div className="maindiv">
                     <div className="renderdiv">
-                        <Render renderStatus={this.state.smallPet} />
+                        <Render renderStatus={this.state.bookings} />
                     </div>
                     <div className="bookingsdiv">
                     <div className="status">

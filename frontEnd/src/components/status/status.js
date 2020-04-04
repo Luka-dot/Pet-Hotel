@@ -6,7 +6,7 @@ const status = props => {
     const bookings = props.status.map(booking => {
         return booking.petWeight        
         });
-        
+        // calculating usage of the floor-room based on size of the pet
         let smallPet = 0;
         let mediumPet = 0;
         let largePet = 0;
@@ -19,7 +19,7 @@ const status = props => {
                 largePet ++
             }
         });
-        console.log(smallPet, mediumPet, largePet)
+        
        let totalCount = 0;
         const calculateSpace = () => {
             totalCount = Math.ceil((100/960) * ((smallPet * 40) + (mediumPet * 60) + (largePet * 80)));
@@ -39,8 +39,6 @@ const status = props => {
         let numberOfBookings = bookings.length
         let dayAveragePrice = Math.ceil((totalPrice / numberOfBookings));
 
-
-
     return <Sticky>
             <div className="status-display">
                
@@ -59,14 +57,3 @@ const status = props => {
 
 
 export default status;
-
-
-// const smallPet = bookings.filter(function(num) {
-//     return num.petWeight <= 20;
-// })
-// const mediumPet = bookings.filter(function(num) {
-//     return num.petWeight > 20 && num.petWeight <50;
-// })
-// const largePet = bookings.filter(function(num) {
-//     return num.petWeight >= 50;
-// })
