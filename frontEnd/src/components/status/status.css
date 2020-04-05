@@ -10,8 +10,8 @@
     margin-right: -5px;
     margin-left: 8.1px;
     width: 46.75%;
-    margin-top: 8px;
-    background-color: #7A8C7F;
+    margin-top: 13px;
+    background-color: #A1AAA1;
 }
 .status-display h4 {
     text-align: left;
@@ -32,7 +32,7 @@
     border-style: dotted;
     position: fixed;
     
-    background-color: #85dcb8;
+    background-color: #A1AAA1;
 }
 #wrapper {
     width: 100%;
@@ -54,7 +54,7 @@
     margin-left: 3px;
     margin-right: 65px;
     height: 22vh;
-    background-color: #c38d9e;
+    background-color: #F9FBFC;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 8px;
 }

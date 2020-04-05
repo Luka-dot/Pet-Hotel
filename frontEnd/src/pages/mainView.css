@@ -7,7 +7,7 @@
     margin-left: 10px;
     margin-right: 5px;
     margin-top: 2vh;
-    background-color: #85dcb8;
+    background-color: #A1AAA1;
   }
   .renderdiv ul {float: left;}
 
@@ -25,7 +25,7 @@
   position: fixed;
   width: 52%;
   height: 9%;
-  background-color: #85dcb8;
+  background-color: #A1AAA1;
   top: 299px;
   box-shadow: 0px 7px 0px rgba(169, 207, 170, 0.1);
 
@@ -54,12 +54,14 @@
 }
 .dateSelect {
     text-align: center;
+    color: #F9FBFC;
+    font-size: larger;
     width: 100%;
     margin-top: -1vh;
     margin-bottom: 1vh;
     position: fixed;
     z-index: 2;
-    background-color: #85dcb8;
+    background-color: #2C2240;
 }
 .btn-5 {
     border: 0 solid;
