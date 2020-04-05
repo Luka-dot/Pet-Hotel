@@ -41,7 +41,7 @@ const status = props => {
 
     return <Sticky>
         <div className="status-display">
-
+            <div className="col">
             <h1>Status details</h1>
             <div id="wrapper">
                 <h4 id="capacity-label"><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
@@ -49,7 +49,7 @@ const status = props => {
             </div>
             <h4><p>We have&nbsp; {bookings.length}&nbsp;&nbsp;guests for this day.</p> </h4>
             <h4><p>Daily average rate is:&nbsp; {dayAveragePrice}&nbsp;$</p> </h4>
-
+            </div>
         </div>
     </Sticky>
 

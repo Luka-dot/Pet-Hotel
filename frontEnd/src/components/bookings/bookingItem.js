@@ -22,7 +22,7 @@ const bookingItem = props => (
             </div>
             <div className="divTableRow2">
                 <h5 className="divTableCell">note:&nbsp; {props.note}</h5>
-                <button className="divTableCell" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
+                <button className="divTableCell" id="deletebtn" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
             </div>
         </div>
     

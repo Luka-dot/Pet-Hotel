@@ -1,8 +1,9 @@
 .renderdiv2 {
   display: block;
-  width: 100%; 
+  position: fixed;
+  width: 48%; 
   float:left; 
-  height:700px;  
+  height:760;  
   margin-left: 1px;
   margin-right: 1px;
   margin-top: 1px;

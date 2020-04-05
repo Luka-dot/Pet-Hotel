@@ -200,7 +200,9 @@ deleteBooking(idValue) {
                         
                     ) : (
                         <React.Fragment>
+                        <div className="btn-holder">
                         <button id="addbtn" onClick={this.setAddBooking} > Add Booking</button>
+                        </div>
                         <BookingList 
                                 bookings={this.state.bookings}
                                 onViewDetail={this.showDetailHandler}
