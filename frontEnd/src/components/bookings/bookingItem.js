@@ -13,7 +13,7 @@ const bookingItem = props => (
                 <h3 className="divTableCell"><a className="inner-text">pet name:</a> &nbsp;{props.petName}</h3>
             </div>
             <div className="divTableRow">
-                <h3 className="divTableCell"><a className="inner-text">per night rate:</a>&nbsp; {props.price}&nbsp;$</h3>
+                <h3 className="divTableCell"><a className="inner-text">per night rate:</a>&nbsp;$ {props.price}&nbsp;</h3>
                 <h3 className="divTableCell"><a className="inner-text">this guest is:</a>&nbsp; {props.petType}</h3>
             </div>
             <div className="divTableRow2">

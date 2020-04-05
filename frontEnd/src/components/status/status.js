@@ -44,11 +44,11 @@ const status = props => {
             <div className="col">
             <h1>Status details</h1>
             <div id="wrapper">
-                <h4 id="capacity-label"><p>capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
+                <h4 id="capacity-label"><p>Capacity used:&nbsp;&nbsp;{totalCount}%</p></h4>
                 <Progress id="progress-bar" percent={totalCount} indicating color='green' />
             </div>
-            <h4><p>We have&nbsp; {bookings.length}&nbsp;&nbsp;guests for this day.</p> </h4>
-            <h4><p>Daily average rate is:&nbsp; {dayAveragePrice}&nbsp;$</p> </h4>
+            <h4><p>Total guests for this day:&nbsp;&nbsp;{bookings.length}</p> </h4>
+            <h4><p>Daily average rate:&nbsp; ${dayAveragePrice}&nbsp;</p> </h4>
             </div>
         </div>
     </Sticky>

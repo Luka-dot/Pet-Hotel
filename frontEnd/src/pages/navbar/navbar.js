@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 import AuthContext from '../../context/auth-context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css';
 
 const navBar = props => (
@@ -9,6 +11,7 @@ const navBar = props => (
     {context => {
       return (
         <header className="main-navigation">
+          <FontAwesomeIcon icon={faPaw}></FontAwesomeIcon>
           <div className="main-navigation__logo">
             <h1>Sit & Stay</h1>
           </div>
