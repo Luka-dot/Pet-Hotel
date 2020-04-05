@@ -70,7 +70,7 @@
 .medium {
   display: flex;
   width: 100%;
-  min-height: 8vh;
+  min-height: 11.2vh;
   background-color: rgb(86, 67, 126);
   margin-top: 2px;
   border-radius: 8px;
@@ -86,10 +86,14 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }
 .small:hover  { 
-  background-color: rgb(161, 243, 161);
-  position: absolute;
-  height: 20vh;
-  width: 25vh;
+  max-width: 100%;
+  height: 10%;
+  min-height: 5vh;
+  background-color: #F9FBFC;
+  margin-top: 2px;
+  border-radius: 8px;
+  border: 2px;
+  border-color: black;
   transform: translate(10px, 20px) scaleY(1.1) scaleX(1.1);
   transition: transform .8s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
@@ -106,6 +110,17 @@
   transform: translate(10px, 20px) scaleY(1.1) scaleX(1.1);
   transition: transform .8s;
 }
+.large:hover {
+  display: absolute;
+  width: 100%;
+  min-height: 13vh;
+  background-color: rgb(167, 138, 158);
+  margin-top: 2px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+  transform: translate(10px, 20px) scaleY(1.1) scaleX(1.1);
+  transition: transform .8s;
+} 
 .divTableBodyS:hover { 
   background-color: rgb(243, 250, 243);
   display: table-row-group;

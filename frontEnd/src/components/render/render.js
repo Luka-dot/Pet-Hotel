@@ -7,23 +7,42 @@ const render = props => {
     let leftCount = 0;
     let leftSideBookings = [];
     let rightSideBookings = [];
+    // first sorting by size of the animal
+    props.renderStatus.sort(compare);
 
     props.renderStatus.map(element => {
-        if (element.petWeight == "small" && leftCount < 11) {
-            leftCount = leftCount +1;
+        if (element.petWeight == "large" && leftCount < 10) {
+            leftCount = leftCount + 2;
             leftSideBookings.push(element);
         } else if (element.petWeight == "medium" && leftCount < 10.5) {
             leftCount = leftCount +1.5;
             leftSideBookings.push(element);
-        } else if (element.petWeight == "large" && leftCount < 10) {
-            leftCount = leftCount + 2;
+        } else if (element.petWeight == "small" && leftCount < 11) {
+            leftCount = leftCount +1;
             leftSideBookings.push(element);
         } else {
             rightSideBookings.push(element);
         }
     })
-    console.log('count ', leftCount)
-    console.log('Arrays ', leftSideBookings , rightSideBookings)
+  
+    // need sort arrays by petWeight so it will be rendered next to each other in single array
+    function compare(a, b) {
+        const bandA = a.petWeight.toUpperCase();
+        const bandB = b.petWeight.toUpperCase();
+      
+        let comparison = 0;
+        if (bandA > bandB) {
+          comparison = 1;
+        } else if (bandA < bandB) {
+          comparison = -1;
+        }
+        return comparison * -1;
+      }
+
+      leftSideBookings.sort(compare)
+      rightSideBookings.sort(compare)
+      
+      console.log(leftSideBookings.sort(compare));
 
     const bookingsLeft = leftSideBookings.map(booking => {
         return <RenderItem    

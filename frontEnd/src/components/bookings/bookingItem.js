@@ -7,24 +7,24 @@ const bookingItem = props => (
     <li key={props.key} className="divTable">
         
      
-        <div className="divTableBody">
+        <li className="divTableBody">
             <div className="divTableRow">
-                <h3 className="divTableCell"><a className="inner-text">customer:</a>&nbsp; {props.customer}</h3>
-                <h3 className="divTableCell"><a className="inner-text">pet name:</a> &nbsp;{props.petName}</h3>
+                <h3 className="divTableCell"><a className="inner-text">Customer:</a>&nbsp; {props.customer}</h3>
+                <h3 className="divTableCell"><a className="inner-text">Pet name:</a> &nbsp;{props.petName}</h3>
             </div>
-            <div className="divTableRow">
+            <div className="divTableRow2">
                 <h3 className="divTableCell"><a className="inner-text">per night rate:</a>&nbsp;$ {props.price}&nbsp;</h3>
                 <h3 className="divTableCell"><a className="inner-text">this guest is:</a>&nbsp; {props.petType}</h3>
             </div>
             <div className="divTableRow2">
-                <h5 className="divTableCell">check-in:&nbsp; {props.checkIn}</h5>
-                <h5 className="divTableCell">check-out:&nbsp; {props.checkOut}</h5>
+                <h5 className="divTableCell"><a className="inner-text">Check-in:</a>&nbsp; {props.checkIn}</h5>
+                <h5 className="divTableCell"><a className="inner-text"></a>Check-out:&nbsp; {props.checkOut}</h5>
             </div>
             <div className="divTableRow2">
-                <h5 className="divTableCell">note:&nbsp; {props.note}</h5>
+                <h5 className="divTableCell"><a className="inner-text"></a>note:&nbsp; {props.note}</h5>
                 <button className="divTableCell" id="deletebtn" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
             </div>
-        </div>
+        </li>
     
     </li>
 
