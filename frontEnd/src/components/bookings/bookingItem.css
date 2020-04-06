@@ -76,7 +76,8 @@ a {
   background-color: rgb(243, 250, 243);
   display: table-row-group;
   transform: translate(-190px, -85px) scaleY(1.1) scaleX(1.1);
-  transition: transform .8s;
+  
+  transition: transform .5s;
   
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }

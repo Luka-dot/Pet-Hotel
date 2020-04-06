@@ -1,8 +1,16 @@
 .setUpH3 {
   margin-left: 1vh;
   font-size: large;
-  
+  text-align: center;
 }
+.setUpH32 {
+  margin-left: 1vh;
+  margin-top: 1vh;
+  font-size: large;
+  text-align: center;
+  font-style: italic;
+}
+
 .setUpHeader {
   margin-left: 1vh;
   text-align: center;
@@ -24,7 +32,7 @@
   position: fixed;
   width: 48%; 
   float:left; 
-  height:760;  
+  height:700;  
   margin-left: 1px;
   margin-right: 1px;
   margin-top: 13vh;
@@ -45,7 +53,7 @@
   display: inline-block;
   min-height: 700px;
   margin-right: 0px;
-  background-color: rgb(129, 153, 119);
+  background-color: rgb(177, 180, 176);
 }
 .small-render-list-right {
   margin-top: 0px;

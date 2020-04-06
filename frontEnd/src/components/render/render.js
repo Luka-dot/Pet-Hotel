@@ -59,6 +59,20 @@ const render = props => {
             }
         });
         countPetsBySize();
+        // day format modification
+        let day= new Date(props.currentDay);
+        let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+        let today = days[day.getDay() ];
+        // calculate remaining space for different sizes of kennels 
+        let remainingSpaceCount = 24;
+        const remainingSpace = () => {
+           remainingSpaceCount = ((remainingSpaceCount - smallPetCount) - (mediumPetCount * 1.5) - (largePetCount * 2) );
+        } 
+        remainingSpace()
+
+        let smallRemaining = Math.floor(remainingSpaceCount);
+        let mediumRemaining = Math.floor(remainingSpaceCount / 1.5);
+        let largeRemaining = Math.floor(remainingSpaceCount / 2);
 
     const bookingsLeft = leftSideBookings.map(booking => {
         return <RenderItem    
@@ -89,10 +103,18 @@ const render = props => {
     });
 
         return <React.Fragment>
-                <div className="setupinfo"><h3 className="setUpHeader">Set-up for this day will require:</h3>
-                <div><h3 className="setUpH3">Small kennels :&nbsp;{smallPetCount} </h3> </div>
-                <div><h3 className="setUpH3">Medium kennels:&nbsp;{mediumPetCount}</h3> </div>
-                <div><h3 className="setUpH3">Large kennels:&nbsp;{largePetCount}</h3> </div>
+                <div className="setupinfo"><h3 className="setUpHeader">Layout for&nbsp; {today}&nbsp; will require:</h3>
+                <div ><h3 className="setUpH3">small kennels&nbsp;({smallPetCount}),&nbsp;&nbsp;&nbsp;&nbsp;
+                        medium kennels&nbsp;({mediumPetCount}), &nbsp;&nbsp;&nbsp;&nbsp;
+                        large kennels&nbsp;&nbsp;({largePetCount}) </h3> 
+                </div>
+                <div>&nbsp;</div>
+                <div><h4 className="setUpH32">Available space for:&nbsp;&nbsp;
+                &nbsp;small kennels ({smallRemaining}), or&nbsp;
+                         medium kennels ({mediumRemaining}), or&nbsp; 
+                        large kennels ({largeRemaining})
+                        </h4> 
+                    </div>
                 </div>
                 <div className="renderdiv2">
                     <div className="small-render-list">{bookingsLeft}</div>

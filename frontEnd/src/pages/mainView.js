@@ -186,7 +186,9 @@ deleteBooking(idValue) {
                     </div>
                     <div className="maindiv">
                     <div className="renderdiv">
-                        <Render renderStatus={this.state.bookings} />
+                        <Render renderStatus={this.state.bookings}
+                                currentDay={this.state.setDate}
+                            />
                     </div>
                     <div className="bookingsdiv">
                     <div className="status">
