@@ -9,7 +9,7 @@ const bookingList = props => {
             key={booking._id}
             id={booking._id}
             customer={booking.customer}
-            price={booking.price}
+            price={(booking.price).toFixed(2)}
             petName={booking.petName}
             checkIn={booking.checkIn}
             checkOut={booking.checkOut}

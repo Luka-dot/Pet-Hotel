@@ -48,7 +48,7 @@ const status = props => {
                 <Progress id="progress-bar" percent={totalCount} indicating color='green' />
             </div>
             <h4><p>Total guests for this day:&nbsp;&nbsp;{bookings.length}</p> </h4>
-            <h4><p>Daily average rate:&nbsp; ${dayAveragePrice}&nbsp;</p> </h4>
+            <h4><p>Daily average rate:&nbsp; ${(dayAveragePrice).toFixed(2)}&nbsp;</p> </h4>
             </div>
         </div>
     </Sticky>

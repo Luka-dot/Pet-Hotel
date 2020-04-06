@@ -10,11 +10,11 @@ const renderItem = props => (
 
         <div className="divTableRowS">
 
-            <h4 className="divTableCellS">Name: &nbsp;{props.petName}</h4>
+            <h4 className="divTableCellS">Pet: &nbsp;{props.petName}</h4>
         </div>
         <div className="divTableRow2">
             <h4 className="divTableCellS">customer:&nbsp; {props.customer}</h4>
-            <h4 className="divTableCellS">per night rate:&nbsp; {props.price}</h4>
+            <h4 className="divTableCellS">per night rate:&nbsp; {(props.price).toFixed(2)}</h4>
             <h4 className="divTableCellS">this guest is:&nbsp; {props.petType}</h4>
         </div>
         <div className="divTableRow2">

@@ -37,21 +37,27 @@ a {
   border-bottom-color: grey;
   border-bottom-style: solid;
   border-width: 1px;
+  
 }
 .divTableRow {
-  display: table-row;
-  
+  display: inherit;
+  min-width: 100%;
 }
 .divTableHeading {
 	background-color: rgb(221, 233, 221);
 	display: table-header-group;
 }
-.divTableCell, .divTableHead {
+.divTableCell, .divTableHead, .divTableCell2 {
 	
-	display: table-cell;
-  padding-top: 10px;
+  display: inline-table;
+  padding-top: 0px;
   padding-left: 15px;
+  margin-right: 5vh;
 }
+.divTableCell2 {
+  
+}
+
 .divTableHeading {
 	background-color: rgb(221, 233, 221);
 	display: table-header-group;
@@ -63,7 +69,7 @@ a {
 	font-weight: bold;
 }
 .divTableBody {
-  display: table-row;
+  
   
 }
 .divTableBody:hover { 

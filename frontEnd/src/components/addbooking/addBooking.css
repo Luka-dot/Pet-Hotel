@@ -19,23 +19,25 @@ body {
   }
   
   .form-control {
+    
     margin-bottom: 1rem;
     margin-left: 1vh;
     margin-right: -1vh;
   }
   
   .btn-confirm {
+
     background: darkgreen;
     display: flex;
     float: right;
     font: inherit;
     margin-top: -3px;
     margin-bottom: 5px;
-    margin-left: 1rem;
+    margin-left: -5rem;
     border: 1px solid darkgreen;
     border-radius: 3px;
     padding: 0.25rem 1rem;
-    margin-right: 0vh;
+    margin-right: 8.8%;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
     color: white;
     cursor: pointer;

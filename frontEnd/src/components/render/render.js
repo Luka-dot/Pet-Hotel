@@ -44,6 +44,22 @@ const render = props => {
       
       console.log(leftSideBookings.sort(compare));
 
+    // 3 variables each holding pets with proper size
+        let smallPetCount = 0;
+        let mediumPetCount = 0;
+        let largePetCount = 0;
+        // map bookings and push pets to appropriate array
+        const countPetsBySize = () => props.renderStatus.map(booking =>{
+            if (booking.petWeight == 'small' ) {
+                smallPetCount ++
+            } else if ( booking.petWeight == 'large' ) {
+                largePetCount ++
+            } else {
+                mediumPetCount ++
+            }
+        });
+        countPetsBySize();
+
     const bookingsLeft = leftSideBookings.map(booking => {
         return <RenderItem    
                     key={booking._id}
@@ -73,6 +89,11 @@ const render = props => {
     });
 
         return <React.Fragment>
+                <div className="setupinfo"><h3 className="setUpHeader">Set-up for this day will require:</h3>
+                <div><h3 className="setUpH3">Small kennels :&nbsp;{smallPetCount} </h3> </div>
+                <div><h3 className="setUpH3">Medium kennels:&nbsp;{mediumPetCount}</h3> </div>
+                <div><h3 className="setUpH3">Large kennels:&nbsp;{largePetCount}</h3> </div>
+                </div>
                 <div className="renderdiv2">
                     <div className="small-render-list">{bookingsLeft}</div>
                     <div className="small-render-list-middle"></div>
