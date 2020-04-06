@@ -146,11 +146,11 @@ class addSingleBooking extends Component {
                                 <input type="text" id="customer-name" ref={this.customerElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="CheckIn">CheckIn</label>
+                                <label htmlFor="CheckIn">Check-in</label>
                                 <input type="date" id="checkIn" ref={this.checkInElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="CheckOut">CheckOut</label>
+                                <label htmlFor="CheckOut">Check-out</label>
                                 <input type="date" id="checkOut" ref={this.checkOutElRef}></input>
                             </div>
                             <div className="form-control">
@@ -158,23 +158,24 @@ class addSingleBooking extends Component {
                                 <input type="float" id="price" ref={this.priceElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="pet-name">pet name</label>
+                                <label htmlFor="pet-name">Pet name</label>
                                 <input type="text" id="pet-name" ref={this.petNameElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="pet-type">pet type</label>
+                                <label htmlFor="pet-type">Pet type</label>
                                 <input type="text" id="pet-type" ref={this.petTypeElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="pet-weight">pet weight</label>
+                                <label htmlFor="pet-weight">Pet weight</label>
                                 <input type="number" id="pet-weight" ref={this.petWeightElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="pet-weight">note</label>
+                                <label htmlFor="pet-weight">Note</label>
                                 <textarea type="text" row="4" id="note" ref={this.noteElRef}></textarea>
                             </div>
                             <button className="btn-confirm" onClick={this.confirmHandler}> Confirm Booking</button>
                             <button className="btn-confirm" type="reset" value="reset">Clear form</button>
+                            <button className="btn-confirm" type="back" >Back</button>
                     </form>       
                         
                     </div>

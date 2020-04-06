@@ -69,8 +69,9 @@ a {
 .divTableBody:hover { 
   background-color: rgb(243, 250, 243);
   display: table-row-group;
-  transition: transform .3s;
-  transform: scale(1.2);
+  transform: translate(-190px, -85px) scaleY(1.1) scaleX(1.1);
+  transition: transform .8s;
+  
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }
 .divTableBody:hover .divTableRow2 {
@@ -81,4 +82,8 @@ a {
   position: inherit;
   display: none;
   min-width: 90vh;
+}
+.HOLD {
+  transition: transform .3s;
+  transform: scale(1.4);
 }
