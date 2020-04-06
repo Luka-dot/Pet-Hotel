@@ -24,7 +24,7 @@
   position: fixed;
   width: 48%;
   height: 9%;
-  margin-left: 2vh;
+  margin-left: 0.8vh;
   background-color: #F4F5F1;
   top: 299px;
   
@@ -45,6 +45,17 @@
     color: white;
     cursor: pointer;
   
+}
+.btn-days {
+  background: #789166;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 0.25rem 1rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+    color: white;
+    cursor: pointer;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 .bookingsRender {
     margin-top: 280px;

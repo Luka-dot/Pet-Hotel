@@ -8,7 +8,7 @@ import AddBooking from '../components/addbooking/addBooking';
 import Render from '../components/render/render';
 import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
-const moment = require('moment');
+import moment from 'moment';
 
 class MainView extends Component {
     state = {
@@ -175,13 +175,42 @@ deleteBooking(idValue) {
       console.log(err);
   });
 }
+setDateMinus = (e) => {
+  e.preventDefault()
+  //console.log(this.state.setDate)
+  const date = new Date(this.state.setDate);
+  //console.log(date)
+  let newDate= moment(date).format('YYYY-MM-DD');
+  //console.log('click', newDate)
+   this.setState({ setDate: newDate });
+   this.fetchBookings();
+};
+
+setDatePlus = (e) => {
+  e.preventDefault()
+  //console.log(this.state.setDate)
+  const date = moment(this.state.setDate);;
+  let newDate= moment(date).add(1, 'days')._d;
+  let newDayToSet = moment(newDate).format('YYYY-MM-DD')
+  //console.log('click', newDate )
+  this.setState({ setDate: newDayToSet });
+  this.fetchBookings();
+};
+
+// // day format modification
+// let day= new Date(props.currentDay);
+// let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+// let today = days[day.getDay() ];
+
      render() {
         return (
                 <div>
                     <div className="dateSelect">
                     <form>
                     <label htmlFor="CheckIn">Select Date to Display :&nbsp;&nbsp; </label>
+                    <button className="btn-days" onClick={this.setDateMinus}>previous</button>
                     <input type="date" id="currentDate" value={this.state.setDate} ref={this.dateElRef} onChange={this.setDate}></input>
+                    <button className="btn-days" onClick={this.setDatePlus}>&nbsp;next&nbsp;</button>
                     </form>
                     </div>
                     <div className="maindiv">

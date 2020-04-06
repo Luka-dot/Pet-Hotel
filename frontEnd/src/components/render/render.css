@@ -1,21 +1,24 @@
 .setUpH3 {
   margin-left: 1vh;
-  font-size: large;
+  font-size: medium;
   text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .setUpH32 {
   margin-left: 1vh;
   margin-top: 1vh;
-  font-size: large;
+  font-size: 0.95rem;
   text-align: center;
   font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .setUpHeader {
   margin-left: 1vh;
   text-align: center;
   font-size: x-large;
-  color: #24A44A;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #075C1D;
 }
 .setupinfo {
   display: block;

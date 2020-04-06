@@ -109,7 +109,7 @@ const render = props => {
                         large kennels&nbsp;&nbsp;({largePetCount}) </h3> 
                 </div>
                 <div>&nbsp;</div>
-                <div><h4 className="setUpH32">Available space for:&nbsp;&nbsp;
+                <div><h4 className="setUpH32">Available space for:&nbsp;
                 &nbsp;small kennels ({smallRemaining}), or&nbsp;
                          medium kennels ({mediumRemaining}), or&nbsp; 
                         large kennels ({largeRemaining})

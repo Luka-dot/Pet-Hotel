@@ -7,6 +7,42 @@ const bookingItem = props => (
     <li key={props.key} className="divTable">
         
      
+        <div className="divTableBody">
+    <div className="divTableRow">
+        <h4 className="divTableCell">pet name: &nbsp;{props.petName}</h4>
+        <h4 className="divTableCell">customer:&nbsp; {props.customer}</h4>
+        <h5 className="divTableCell"><a className="inner-text"></a>note:&nbsp; {props.note}</h5>
+    </div>
+<div className="divTableRow">
+    <h4 className="divTableCell">per night rate:&nbsp; {props.price}</h4>
+    <h4 className="divTableCell">this guest is:&nbsp; {props.petType}</h4>
+    
+</div>
+<div className="divTableRow">
+    <h5 className="divTableCell">check-in:&nbsp; {props.checkIn}</h5>
+    <h5 className="divTableCell">check-out:&nbsp; {props.checkOut}</h5>
+    <button className="divTableCell" id="deletebtn" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
+</div>
+</div>
+    
+    </li>
+
+);
+
+export default bookingItem;
+
+/*  import './bookingItem.css';
+
+
+onClick={props.onDelete.bind(this, booking._id)}
+
+
+// props are passed from bookingList
+
+
+ <li key={props.key} className="divTable">
+        
+     
         <li className="divTableBody">
             <div className="divTableRow">
                 <h3 className="divTableCell"><a className="inner-text">Customer:</a>&nbsp; {props.customer}</h3>
@@ -28,17 +64,9 @@ const bookingItem = props => (
     
     </li>
 
-);
-
-export default bookingItem;
-
-/*  import './bookingItem.css';
 
 
-onClick={props.onDelete.bind(this, booking._id)}
 
-
-// props are passed from bookingList
 const bookingItem = props => (
   <li key={props.key} className="divTable">
 
