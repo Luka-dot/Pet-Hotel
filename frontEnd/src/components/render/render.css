@@ -7,7 +7,7 @@
   margin-left: 1vh;
   text-align: center;
   font-size: x-large;
-  color: darkgreen;
+  color: #24A44A;
 }
 .setupinfo {
   display: block;
@@ -45,7 +45,7 @@
   display: inline-block;
   min-height: 700px;
   margin-right: 0px;
-  background-color: lightslategrey;
+  background-color: rgb(129, 153, 119);
 }
 .small-render-list-right {
   margin-top: 0px;
@@ -92,7 +92,7 @@
   display: flex;
   width: 100%;
   min-height: 11.2vh;
-  background-color: rgb(86, 67, 126);
+  background-color: #202A45;
   margin-top: 2px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
@@ -101,7 +101,7 @@
   display: flex;
   width: 100%;
   min-height: 13vh;
-  background-color: rgb(167, 138, 158);
+  background-color: #828FA5;
   margin-top: 2px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
@@ -135,12 +135,13 @@
   display: absolute;
   width: 100%;
   min-height: 13vh;
-  background-color: rgb(167, 138, 158);
+  background-color: #828FA5;
   margin-top: 2px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
   transform: translate(10px, 20px) scaleY(1.1) scaleX(1.1);
   transition: transform .8s;
+  display: show;
 } 
 .divTableBodyS:hover { 
   background-color: rgb(243, 250, 243);
@@ -148,6 +149,7 @@
   transition: transform .3s;
   transform: scale(1.2);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+  
 }
 .divTableBodyS:hover .divTableRow2 {
   display: table-row;

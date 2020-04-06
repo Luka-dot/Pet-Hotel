@@ -11,7 +11,6 @@ const navBar = props => (
     {context => {
       return (
         <header className="main-navigation">
-          <FontAwesomeIcon icon={faPaw}></FontAwesomeIcon>
           <div className="main-navigation__logo">
             <h1>Sit & Stay</h1>
           </div>
