@@ -22,7 +22,8 @@ class MainView extends Component {
         selectedBooking: null,
         smallPet: [],
         mediumPet: null,
-        largePet: null
+        largePet: null,
+        spaceLeft: 0
       };
 
       static contextType = AuthContext;
@@ -113,17 +114,25 @@ class MainView extends Component {
         let largePetArr = [];
         // map bookings and push pets to appropriate array
         const sortPetsBySize = () => filteredBookings.map(booking =>{
-            if (booking.petWeight < 21 ) {
+            if (booking.petWeight == 'small' ) {
                 smallPetArr.push(booking)
-            } else if ( booking.petWeight >= 70 ) {
+            } else if ( booking.petWeight == 'large' ) {
                 largePetArr.push(booking)
             } else {
                 mediumPetArr.push(booking)
             }
         });
         sortPetsBySize();
-
         this.setState({bookings: filteredBookings, isLoading: false, activeBookings: filteredBookings.length, smallPet : smallPetArr, mediumPet: mediumPetArr, largePet: largePetArr });
+      
+        // calculating usage of the floor-room based on size of the pet
+        const setSpaceRemaining = () => {         
+          let totalCount = 24 - ((this.state.smallPet.length) + (this.state.mediumPet.length * 1.5) + (this.state.largePet.length * 2));
+          console.log(this.state.smallPet.length)
+          console.log(totalCount)
+          return this.setState({ spaceLeft : totalCount }) 
+        }
+        setSpaceRemaining();
       })
     
     .catch(err => {
@@ -197,6 +206,8 @@ setDatePlus = (e) => {
   this.fetchBookings();
 };
 
+
+
 // // day format modification
 // let day= new Date(props.currentDay);
 // let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
@@ -227,7 +238,7 @@ setDatePlus = (e) => {
                     
                     <div className="bookingsRender">            
                     {this.state.addBooking ? (
-                        <AddBooking test={this.removeAddBooking} addBooking={this.state.addBooking}/>
+                        <AddBooking test={this.removeAddBooking} addBooking={this.state.addBooking} available={this.state.spaceLeft}/>
                         
                     ) : (
                         <React.Fragment>

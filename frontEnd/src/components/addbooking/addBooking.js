@@ -15,8 +15,7 @@ class addSingleBooking extends Component {
         customer: '',
         checkIn: '',
         petName: ''
-    };
-    
+      };
 
     // contextType is passed so we have access to token that needs to be attached to create booking
     static contextType = AuthContext;
@@ -33,7 +32,7 @@ class addSingleBooking extends Component {
         this.petWeightElRef = React.createRef();
         this.noteElRef = React.createRef();
     }
-
+    
     // when Add Booking is submitted changing state so Modal pops up
     submittedBookingHandler = () => {
         this.setState({creating: true})
@@ -50,7 +49,9 @@ class addSingleBooking extends Component {
         this.setState({ setDate: date });
         // this.fetchBookings();
     };
+
     
+ 
     confirmHandler = (e) => {
          e.preventDefault()
         const customer = this.customerElRef.current.value;
@@ -72,6 +73,10 @@ class addSingleBooking extends Component {
         }
         
         const note = this.noteElRef.current.value;
+        // check if there is enough space for this booking
+        if  ((this.props.available < 1 && petWeight == 'small') || (this.props.available < 1.5 && petWeight == 'medium') || (this.props.available < 2 && petWeight == 'large')) {
+          return  alert('not enough space')
+        }
 
         this.setState({customer: customer, checkIn: checkIn, petName: petName})
         // add validation here if enough time
@@ -122,6 +127,7 @@ class addSingleBooking extends Component {
               console.log(err);
             });
     }
+   
     render() {
         return (
             <React.Fragment>

@@ -52,8 +52,11 @@
   .form-actions button:active,
   .btn:hover,
   .btn:active {
-    background: rgb(22, 119, 22);
-    border-color: rgb(13, 109, 13);
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #0af04f;
   }
   .btn-modal {
     background: darkgreen;

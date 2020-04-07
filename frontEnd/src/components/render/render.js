@@ -11,13 +11,13 @@ const render = props => {
     props.renderStatus.sort(compare);
 
     props.renderStatus.map(element => {
-        if (element.petWeight == "large" && leftCount < 10) {
+        if (element.petWeight == "large" && leftCount <= 10) {
             leftCount = leftCount + 2;
             leftSideBookings.push(element);
-        } else if (element.petWeight == "medium" && leftCount < 10.5) {
+        } else if (element.petWeight == "medium" && leftCount <= 10.5) {
             leftCount = leftCount +1.5;
             leftSideBookings.push(element);
-        } else if (element.petWeight == "small" && leftCount < 11) {
+        } else if (element.petWeight == "small" && leftCount <= 11) {
             leftCount = leftCount +1;
             leftSideBookings.push(element);
         } else {
@@ -36,7 +36,7 @@ const render = props => {
         } else if (bandA < bandB) {
           comparison = -1;
         }
-        return comparison * -1;
+        return comparison * 1;
       }
 
       leftSideBookings.sort(compare)
@@ -73,6 +73,7 @@ const render = props => {
         let smallRemaining = Math.floor(remainingSpaceCount);
         let mediumRemaining = Math.floor(remainingSpaceCount / 1.5);
         let largeRemaining = Math.floor(remainingSpaceCount / 2);
+        console.log(largeRemaining)
 
     const bookingsLeft = leftSideBookings.map(booking => {
         return <RenderItem    
