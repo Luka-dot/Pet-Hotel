@@ -31,7 +31,8 @@ module.exports = {
             creator: '5e813eebe2cd77339caafa98',
             petName: args.bookingInput.petName,
             petType: args.bookingInput.petType,
-            petWeight: +args.bookingInput.petWeight
+            petWeight: args.bookingInput.petWeight,
+            note: args.bookingInput.note,
         });
         let createdBooking;
         

@@ -39,12 +39,13 @@ h1 {
       justify-content: center;
   }
   .form-actions button {
-    background: forestgreen;
     font: inherit;
-    border: 1px solid forestgreen;
+   padding: 0.25rem 1rem;
+    margin-right: 1rem;
+    background: #075C1D; 
+    border: 1px solid white;
     border-radius: 3px;
     padding: 0.25rem 1rem;
-    margin-right: 1rem;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
     color: white;
     cursor: pointer;

@@ -2,8 +2,6 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 import AuthContext from '../../context/auth-context';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaw } from '@fortawesome/free-solid-svg-icons'
 import './navbar.css';
 
 const navBar = props => (

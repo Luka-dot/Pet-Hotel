@@ -16,8 +16,8 @@ const bookingItem = props => (
         </div>
         <div className="divTableRow">
             <h5 className="divTableCell">&nbsp; {props.customer}</h5>
-            <h4 className="divTableCell" id="petType">{props.petType}&nbsp; </h4>
-            <h4 className="divTableCell"></h4>
+            <h3 className="divTableCell" id="petType">{props.petType}&nbsp; </h3>
+            <h4 className="divTableCell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
             <button className="divTableCell" id="deletebtn" onClick={props.onDetail.bind(props.id)} value={props.id}>Delete</button>
     
         </div>
@@ -35,91 +35,3 @@ const bookingItem = props => (
 );
 
 export default bookingItem;
-
-/*  import './bookingItem.css';
-<button className="divTableCell" id="deletebtn" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
-
-<li key={props.key} className="divTable">
-        
-     
-        <div className="divTableBody">
-        <div className="divTableRow">
-            <h4 className="divTableCell">pet name: &nbsp;{props.petName}</h4>
-            <h4 className="divTableCell">customer:&nbsp; {props.customer}</h4>
-            <h5 className="divTableCell"><a className="inner-text"></a>note:&nbsp; {props.note}</h5>
-        </div>
-        <div className="divTableRow">
-            <h4 className="divTableCell">per night rate:&nbsp; {props.price}</h4>
-            <h4 className="divTableCell">this guest is:&nbsp; {props.petType}</h4>
-    
-        </div>
-        <div className="divTableRow">
-            <h5 className="divTableCell">check-in:&nbsp; {props.checkIn}</h5>
-            <h5 className="divTableCell">check-out:&nbsp; {props.checkOut}</h5>
-            <button className="divTableCell" id="deletebtn" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
-        </div>
-    </div>
-    
-    </li>
-
-
-
-
-onClick={props.onDelete.bind(this, booking._id)}
-
-
-// props are passed from bookingList
-
-
- <li key={props.key} className="divTable">
-        
-     
-        <li className="divTableBody">
-            <div className="divTableRow">
-                <h3 className="divTableCell"><a className="inner-text">Customer:</a>&nbsp; {props.customer}</h3>
-                <h3 className="divTableCell"><a className="inner-text">Pet name:</a> &nbsp;{props.petName}</h3>
-            </div>
-            <div className="divTableRow2">
-                <h3 className="divTableCell"><a className="inner-text">per night rate:</a>&nbsp;$ {props.price}&nbsp;</h3>
-                <h3 className="divTableCell"><a className="inner-text">this guest is:</a>&nbsp; {props.petType}</h3>
-            </div>
-            <div className="divTableRow2">
-                <h5 className="divTableCell"><a className="inner-text">Check-in:</a>&nbsp; {props.checkIn}</h5>
-                <h5 className="divTableCell"><a className="inner-text"></a>Check-out:&nbsp; {props.checkOut}</h5>
-            </div>
-            <div className="divTableRow2">
-                <h5 className="divTableCell"><a className="inner-text"></a>note:&nbsp; {props.note}</h5>
-                <button className="divTableCell" id="deletebtn" onClick={props.onDetail.bind(props.id)} value={props.id}>Cancel Booking</button>
-            </div>
-        </li>
-    
-    </li>
-
-
-
-
-const bookingItem = props => (
-  <li key={props.key} className="divTable">
-
-    <div className="divTableBody">
-    <div className="divTableRow">
-    <h4 className="divTableCell">customer:&nbsp; {props.customer}</h4>
-    <h4 className="divTableCell">pet name: &nbsp;{props.petName}</h4>
-</div>
-<div className="divTableRow">
-    <h4 className="divTableCell">per night rate:&nbsp; {props.price}</h4>
-    <h4 className="divTableCell">this guest is:&nbsp; {props.petType}</h4>
-</div>
-<div className="divTableRow2">
-    <h5 className="divTableCell">check-in:&nbsp; {props.checkIn}</h5>
-    <h5 className="divTableCell">check-out:&nbsp; {props.checkOut}</h5>
-</div>
-</div>
-
-</li>
-
-);
-
-
-
-*/

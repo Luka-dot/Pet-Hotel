@@ -51,7 +51,8 @@ const transformBooking = bookingToTransform => { //  booking => is the current a
     checkOut: dateToString(bookingToTransform._doc.checkOut),
     petName: bookingToTransform.petName,
     petType: bookingToTransform.petType,
-    petWeight: bookingToTransform.petWeight
+    petWeight: bookingToTransform.petWeight,
+    note: bookingToTransform.note
   }
 }
 

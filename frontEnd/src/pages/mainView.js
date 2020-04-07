@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect, Link } from "react-router-dom";
 import './mainView.css';
 
 import BookingList from '../components/bookings/bookingList/bookingList';
 import Status from '../components/status/status';
 import AddBooking from '../components/addbooking/addBooking';
 import Render from '../components/render/render';
-import Spinner from '../components/spinner/spinner';
 import AuthContext from '../context/auth-context';
 import moment from 'moment';
 
@@ -19,10 +17,9 @@ class MainView extends Component {
         addBooking: false,
         bookingToDelete: null,
         activeBookings: null,
-        selectedBooking: null,
         smallPet: [],
-        mediumPet: null,
-        largePet: null,
+        mediumPet: [],
+        largePet: [],
         spaceLeft: 0
       };
 
@@ -205,13 +202,6 @@ setDatePlus = (e) => {
   this.setState({ setDate: newDayToSet });
   this.fetchBookings();
 };
-
-
-
-// // day format modification
-// let day= new Date(props.currentDay);
-// let days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-// let today = days[day.getDay() ];
 
      render() {
         return (

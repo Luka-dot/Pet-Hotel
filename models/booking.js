@@ -39,6 +39,9 @@ const bookingSchema = new Schema({
   petWeight: {
     type: String,
     required: true
+  },
+  note: {
+    type: String,
   }
 });
 

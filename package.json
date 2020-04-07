@@ -22,6 +22,10 @@
   "devDependencies": {
     "nodemon": "^2.0.2"
   },
+  "engines": {
+    "node": "10.0.0",
+    "npm": "5.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Luka-dot/Pet-Hotel.git"
@@ -30,4 +34,5 @@
     "url": "https://github.com/Luka-dot/Pet-Hotel/issues"
   },
   "homepage": "https://github.com/Luka-dot/Pet-Hotel#readme"
+  
 }

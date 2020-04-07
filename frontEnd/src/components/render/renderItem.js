@@ -2,7 +2,6 @@ import React from 'react';
 
 import './render.css';
 
-// props are passed from bookingList
 const renderItem = props => (
 
     <li key={props.key} className={props.petWeight}>
@@ -10,15 +9,10 @@ const renderItem = props => (
         <div className="divTableRowS">
             <h3 className="divTableCellS">&nbsp;{props.petName}</h3>
             <div className="divTableRowS">
-            <p id="hidePet">&nbsp; {props.petType} &nbsp;&nbsp;&nbsp;&nbsp; {props.petWeight}</p>
-            
-            </div>
-            
-            
-            </div>
-        
+                <h3 id="hidePet">&nbsp; {props.petType} &nbsp;&nbsp;&nbsp;&nbsp; {props.petWeight}</h3>
+           </div>
+       </div>       
     </li>
-
 );
 
 export default renderItem;
