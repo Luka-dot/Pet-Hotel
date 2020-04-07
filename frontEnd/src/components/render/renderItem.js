@@ -8,8 +8,28 @@ const renderItem = props => (
     <li key={props.key} className={props.petWeight}>
 
         <div className="divTableRowS">
+            <h3 className="divTableCellS">&nbsp;{props.petName}</h3>
+            <div className="divTableRowS">
+            <h4 id="hidePet">&nbsp; {props.petType}</h4>
+            </div>
+            
+            
+            </div>
+        
+    </li>
 
-            <h4 className="divTableCellS">Pet: &nbsp;{props.petName}</h4>
+);
+
+export default renderItem;
+
+
+/*
+
+<li key={props.key} className={props.petWeight}>
+
+        <div className="divTableRowS">
+
+            <h3 className="divTableCellS">&nbsp;{props.petName}</h3>
         </div>
         <div className="divTableRow2">
             <h4 className="divTableCellS">customer:&nbsp; {props.customer}</h4>
@@ -22,6 +42,4 @@ const renderItem = props => (
         </div>
     </li>
 
-);
-
-export default renderItem;
+*/

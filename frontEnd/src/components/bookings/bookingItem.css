@@ -1,10 +1,10 @@
 .divTable{
 	display: table;
-  width: 100%;
-  width: 100%;
+  width: 90%;
   height: 90px;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin-left: 3vh;
   margin-bottom: 2vh;
   border-radius: 5px;
 }
@@ -35,13 +35,18 @@
 .divTableBody {
   display: table-row-group;
 }
-
+.divTableRow3 {
+  padding-bottom: 0vh;
+  
+}
 
 #deletebtn {
     background: #85144b;
     float: right;
-    margin-bottom: 0vh;
-    margin-right: 4vh;
+    margin-bottom: -2vh;
+    margin-right: 3vh;
+    margin-left: -4.5vh;
+    margin-top: 1vh;
     font: inherit;
     border: 1px solid white;
     border-radius: 3px;
@@ -57,10 +62,20 @@
   outline-offset: 15px;
   text-shadow: 1px 1px 2px black; 
 }
-
-
-
-.divTableRow2 {
-  display: table-row;
-  min-width: 90vh;
+#petType {
+  position: inherit;
+  margin-right: 40vh;
+  margin-left: 0vh;
+  margin-top: 2vh;
+  padding-left: 0px;
+}
+.divTableRow {
+  min-width: 100%;
+  
+}
+.btnTableCell {
+  position: relative;
+  margin-top: -3vh;
+  margin-left: 4vh;
+  padding-bottom: 5px;
 }

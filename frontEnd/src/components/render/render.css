@@ -63,18 +63,19 @@
   margin-left: 20vh;
 }
 .divTableS{
-	display: table;
-  
+	display: block;  
   width: 100%;
-  
+  float: left;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin-top: 0.8vh;
   border-radius: 5px;
 }
 .divTableRowS {
-  display: table-row;
-  
+  display: inline-flex; 
+}
+.divTableRowS h3{
+  color: whitesmoke; 
 }
 .divTableHeadingS {
 	background-color: rgb(221, 233, 221);
@@ -82,7 +83,8 @@
 }
 .divTableCellS, .divTableHeadS {
 	
-	display: table-cell;
+    display: block;
+    min-width: 16vh;
     padding-top: 10px;
     padding-left: 15px;
 }
@@ -92,7 +94,7 @@
   max-width: 100%;
   height: 10%;
   min-height: 5vh;
-  background-color: rgb(179, 217, 236);
+  background-color: rgb(17, 101, 143);
   margin-top: 2px;
   border-radius: 8px;
   border: 2px;
@@ -117,42 +119,29 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }
-.small:hover  { 
-  max-width: 100%;
-  height: 10%;
-  min-height: 5vh;
-  background-color: #F9FBFC;
-  margin-top: 2px;
-  border-radius: 8px;
-  border: 2px;
-  border-color: black;
-  transform: translate(10px, 20px) scaleY(1.1) scaleX(1.1);
+.small:hover .divTableRow2 { 
+  display: table-row;
+  transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
+  transition: transform .8s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
+
+}
+.small:hover { 
+ 
+  transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
   transition: transform .8s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 
 }
 .medium:hover {
-  display: absolute;
-  width: 100%;
-  min-height: 11.2vh;
-  background-color: rgb(86, 67, 126);
-  margin-top: 2px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
-  transform: translate(10px, 20px) scaleY(1.1) scaleX(1.1);
+  transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
   transition: transform .8s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }
 .large:hover {
-  display: absolute;
-  width: 100%;
-  min-height: 13vh;
-  background-color: #828FA5;
-  margin-top: 2px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
-  transform: translate(10px, 20px) scaleY(1.1) scaleX(1.1);
+  transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
   transition: transform .8s;
-  display: show;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 } 
 .divTableBodyS:hover { 
   background-color: rgb(243, 250, 243);
@@ -164,7 +153,7 @@
 }
 .divTableBodyS:hover .divTableRow2 {
   display: table-row;
- 
+  
 }
 .divTableRow2 {
   display: none;
@@ -175,4 +164,13 @@
   width: 100%;
   
   background-color:yellow;
+}
+.petHolder {
+  display: inline-table;
+}
+#hidePet {
+  width:100px;
+  display:block;
+  float: right;
+  margin-top: 2vh;
 }
