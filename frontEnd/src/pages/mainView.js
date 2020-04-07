@@ -207,7 +207,7 @@ setDatePlus = (e) => {
                 <div>
                     <div className="dateSelect">
                     <form>
-                    <label htmlFor="CheckIn">Select Date to Display :&nbsp;&nbsp; </label>
+                    <label htmlFor="CheckIn">&nbsp; </label>
                     <button className="btn-days" onClick={this.setDateMinus}>previous</button>
                     <input type="date" id="currentDate" value={this.state.setDate} ref={this.dateElRef} onChange={this.setDate}></input>
                     <button className="btn-days" onClick={this.setDatePlus}>&nbsp;next&nbsp;</button>

@@ -10,7 +10,8 @@ const renderItem = props => (
         <div className="divTableRowS">
             <h3 className="divTableCellS">&nbsp;{props.petName}</h3>
             <div className="divTableRowS">
-            <h4 id="hidePet">&nbsp; {props.petType}</h4>
+            <p id="hidePet">&nbsp; {props.petType} &nbsp;&nbsp;&nbsp;&nbsp; {props.petWeight}</p>
+            
             </div>
             
             

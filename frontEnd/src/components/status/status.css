@@ -68,7 +68,7 @@ h1 {
     border-style: dotted;
 
 }
-p {
+.col p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: medium;
     font-weight: bolder;

@@ -122,31 +122,30 @@
 .small:hover .divTableRow2 { 
   display: table-row;
   transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
-  transition: transform .8s;
+  transition: transform .1s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 
 }
 .small:hover { 
- 
   transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
-  transition: transform .8s;
+  transition: transform .1s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 
 }
 .medium:hover {
   transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
-  transition: transform .8s;
+  transition: transform .1s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 }
 .large:hover {
   transform: translate(2px, 2px) scaleY(1.03) scaleX(1.03);
-  transition: transform .8s;
+  transition: transform .1s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
 } 
 .divTableBodyS:hover { 
   background-color: rgb(243, 250, 243);
   display: table-row-group;
-  transition: transform .3s;
+  transition: transform .1s;
   transform: scale(1.2);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.26);
   
@@ -155,9 +154,23 @@
   display: table-row;
   
 }
-.divTableRow2 {
-  display: none;
-  
+.small:hover #hidePet  {
+  width:100px;
+  display:block;
+  float: right;
+  margin-top: 2vh; 
+}
+.medium:hover #hidePet  {
+  width:100px;
+  display:block;
+  float: right;
+  margin-top: 2vh; 
+}
+.large:hover #hidePet  {
+  width:100px;
+  display:block;
+  float: right;
+  margin-top: 2vh; 
 }
 #middle {
   display: block;
@@ -169,8 +182,9 @@
   display: inline-table;
 }
 #hidePet {
-  width:100px;
-  display:block;
-  float: right;
-  margin-top: 2vh;
+  display:none;
+}
+p {
+  font-size: small;
+  color: whitesmoke;
 }
