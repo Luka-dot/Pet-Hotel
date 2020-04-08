@@ -4,9 +4,7 @@ import './bookingItem.css';
 // props are passed from bookingList
 const bookingItem = props => (
 
-    <li key={props.key} className="divTable">
-        
-     
+    <li key={props.key} className="divTable">    
         <div className="divTableBody">
         <div className="divTableRow">
             <h3 className="divTableCell">&nbsp;{props.petName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>

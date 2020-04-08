@@ -6,7 +6,9 @@ import Status from '../components/status/status';
 import AddBooking from '../components/addbooking/addBooking';
 import Render from '../components/render/render';
 import AuthContext from '../context/auth-context';
-import React, {Component} from 'react';
+import { Line } from 'react-chartjs-2';
+import GraphModal from '../components/modal/graphModal';
+import Backdrop from '../components/modal/backdrop';
 import moment from 'moment';
 
 class MainView extends Component {
@@ -16,6 +18,7 @@ class MainView extends Component {
         isLoading: false,
         setDate: new Date().toISOString().slice(0,10),
         addBooking: false,
+        charts: false,
         bookingToDelete: null,
         activeBookings: null,
         smallPet: [],
@@ -47,6 +50,10 @@ class MainView extends Component {
 
     setAddBooking = () => {
         this.setState({addBooking: true});
+    }
+
+    setChart = () => {
+      this.setState(prevState => ({ charts: !prevState.charts }));
     }
 
     removeAddBooking() {
@@ -206,7 +213,17 @@ setDatePlus = (e) => {
 
      render() {
         return (
-                <div>
+                
+                  <React.Fragment>
+                  {this.state.charts && <Backdrop />}
+                  {this.state.charts && <GraphModal 
+                  title="Charts" 
+                  chartSwitch={this.setChart}
+                >
+                <h3>For :&nbsp;&nbsp; {this.state.customer} </h3>
+                <h3> pet name :&nbsp;&nbsp; {this.state.petName}</h3>
+                <h3> check in :&nbsp;&nbsp; {this.state.checkIn}</h3>
+                </GraphModal>}
                     <div className="dateSelect">
                     <form>
                     <label htmlFor="CheckIn">&nbsp; </label>
@@ -223,7 +240,9 @@ setDatePlus = (e) => {
                     </div>
                     <div className="bookingsdiv">
                     <div className="status">
-                        <Status status={this.state.bookings}/>                            
+                        <Status status={this.state.bookings}
+                                chartSwitch={this.setChart}
+                        />                            
                     </div>
                     {this.state.addBooking}
                     
@@ -245,7 +264,7 @@ setDatePlus = (e) => {
                     </div>
                     </div>
                     </div>
-                </div>
+                    </React.Fragment>
             
         );
       }

@@ -14,21 +14,13 @@ const navBar = props => (
           </div>
           <nav className="main-navigation__items">
             <ul>
-              {!context.token && (
-                <li>
-                  <NavLink to="/">Need Authenticate</NavLink>
-                </li>
-              )}
-              {context.token && (
+              
                 <React.Fragment>
-                  <li>
-                    <NavLink to="/mainView">Main</NavLink>
-                  </li>
                   <li>
                     <Link to="/"><button id="log-out-button" onClick={context.logout} >Logout</button></Link>
                   </li>
                 </React.Fragment>
-              )}
+              
             </ul>
           </nav>
         </header>

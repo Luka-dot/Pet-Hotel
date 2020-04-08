@@ -1,0 +1,84 @@
+.graphModal {
+    min-width: 70%;
+    height: 85%;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    position: fixed;
+    top: 10vh;
+    margin-left: -25%;
+    z-index: 100;
+  }
+  
+  .graphModal__header {
+    padding: 1rem;
+    background: #5101d1;
+    color: white;
+  }
+  
+  .graphModal__header h1 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  .graphModal__content {
+    padding: 1rem;
+  }
+  
+  .graphModal__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .graphModal {
+      width: 30rem;
+      left: calc((100% - 30rem) / 2);
+    }
+  }
+  .btn {
+    background: darkgreen;
+    display: flex;
+    text-align:center;
+    font: inherit;
+    border: 1px solid darkgreen;
+    border-radius: 3px;
+    padding: 0.25rem 1rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .form-actions button:hover,
+  .form-actions button:active,
+  .btn:hover,
+  .btn:active {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #0af04f;
+  }
+  .btnChart {
+    background: #85144b;
+    float: right;
+    margin-bottom: -2vh;
+    margin-right: 3vh;
+    margin-left: -4.5vh;
+    margin-top: 1vh;
+    font: inherit;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 0.25rem 1rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+    color: white;
+    cursor: pointer;
+  }
+  .btnChart:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px black; 
+
+  }

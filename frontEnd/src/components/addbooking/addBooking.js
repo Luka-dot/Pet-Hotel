@@ -149,7 +149,7 @@ class addSingleBooking extends Component {
                     <form className="form">
                             <div className="form-control">
                                 <label htmlFor="Customer-name">Customer name</label>
-                                <input type="text" id="customer-name" ref={this.customerElRef}></input>
+                                <input type="text" id="customer-name"  placeholder="Marisa Paterson" ref={this.customerElRef}></input>
                             </div>
                             <div className="form-control">
                                 <label htmlFor="CheckIn">Check-in</label>
@@ -160,20 +160,20 @@ class addSingleBooking extends Component {
                                 <input type="date" id="checkOut" ref={this.checkOutElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="price">Price</label>
-                                <input type="float" id="price" ref={this.priceElRef}></input>
+                                <label htmlFor="price" >Price</label>
+                                <input type="float" id="price" placeholder="58.00" ref={this.priceElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="pet-name">Pet name</label>
-                                <input type="text" id="pet-name" ref={this.petNameElRef}></input>
+                                <label htmlFor="pet-name" >Pet name</label>
+                                <input type="text" id="pet-name" placeholder="Rex" ref={this.petNameElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="pet-type">Pet type</label>
-                                <input type="text" id="pet-type" ref={this.petTypeElRef}></input>
+                                <label htmlFor="pet-type" >Pet type</label>
+                                <input type="text" id="pet-type" placeholder="Dog" ref={this.petTypeElRef}></input>
                             </div>
                             <div className="form-control">
-                                <label htmlFor="pet-weight">Pet weight</label>
-                                <input type="number" id="pet-weight" ref={this.petWeightElRef}></input>
+                                <label htmlFor="pet-weight" >Pet weight</label>
+                                <input type="number" id="pet-weight" placeholder="70" ref={this.petWeightElRef}></input>
                             </div>
                             <div className="form-control">
                                 <label htmlFor="pet-weight">Note</label>

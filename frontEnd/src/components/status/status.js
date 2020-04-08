@@ -50,45 +50,11 @@ const status = props => {
             </div>
             <h4><p>Total guests for this day:&nbsp;&nbsp;{bookings.length}</p> </h4>
             <h4 className="statusH4"><p>Daily average rate:&nbsp; ${(dayAveragePrice).toFixed(2)}&nbsp;</p>
-                 <button className="report-btn" >Reports</button> </h4>
-                 <ReactMinimalPieChart
-            animate={false}
-              cx={50}
-              cy={50}
-              data={[
-            {
-              color: '#2E8B57',
-              title: 'One',
-              value: `10`
-            }, {
-              color: '#98FB98',
-              title: 'Two',
-              value: `8` 
-            }
-            ]}
-            label={false}
-            labelPosition={50}
-            lengthAngle={360}
-            lineWidth={100}
-            totalValue = {`20`}
-            paddingAngle={0}
-            radius={25}
-            rounded={false}
-            startAngle={100}
-            style={{
-              height: '75px',
-              width: '75px'
-            }}
-            viewBoxSize={[
-             25,
-             25
-            ]}
-          />
+                 <button className="report-btn" onClick={props.chartSwitch}>Reports</button> </h4>
             </div>
         </div>
     </Sticky>
 
 };
-
 
 export default status;
