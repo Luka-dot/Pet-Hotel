@@ -6,6 +6,7 @@ import Status from '../components/status/status';
 import AddBooking from '../components/addbooking/addBooking';
 import Render from '../components/render/render';
 import AuthContext from '../context/auth-context';
+import React, {Component} from 'react';
 import moment from 'moment';
 
 class MainView extends Component {
