@@ -44,8 +44,7 @@ class App extends Component {
                 {!this.state.token && (
                   <Route path="/auth" component={AuthPage} />
                 )}
-                <Route path="/mainview" component={MainView} />
-                
+                <Route path="/mainview" component={MainView} />                
                 {!this.state.token && <Redirect to="/auth" exact />}
               </Switch>
             </main>
