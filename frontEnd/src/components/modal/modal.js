@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect, Link } from "react-router-dom";
 
 import './modal.css';
-import Booking from '../../pages/booking';
 
 const modal = props => (
   <div className="modal">
